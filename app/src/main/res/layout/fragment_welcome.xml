@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Welcome">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_app">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="10dp"
+    >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/smart"
+                android:textColor="@color/welcome_textcolor"
+                android:fontFamily="@font/poppinsblack"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home"
+                android:fontFamily="@font/poppins"
+                android:textSize="32sp"
+                android:textColor="@color/welcome_textcolor" />
+        </LinearLayout>
+        <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
+>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="40dp"
+            >
+
+            <ImageButton
+                android:id="@+id/btn_terrasse"
+                android:layout_width="160dp"
+                android:layout_height="110dp"
+
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_terrasse"
+                android:paddingTop="35dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:paddingBottom="35dp"
+                android:background="@drawable/imagebutton"
+                />
+            <ImageButton
+                android:id="@+id/btn_whirlpool"
+                android:layout_width="160dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="50dp"
+
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_whirlpool"
+                android:paddingTop="35dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:paddingBottom="35dp"
+                android:background="@drawable/imagebutton"
+                />
+        </LinearLayout>
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:layout_marginStart="10dp"
+            android:layout_gravity="left"
+        >
+
+        <ImageButton
+            android:id="@+id/btn_pool"
+            android:layout_width="160dp"
+            android:layout_height="110dp"
+
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_pool"
+            android:paddingTop="35dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:paddingBottom="35dp"
+            android:background="@drawable/imagebutton"
+            />
+        <ImageButton
+            android:id="@+id/btn_camera"
+            android:layout_width="160dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="50dp"
+
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_kamera"
+            android:paddingTop="35dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:paddingBottom="35dp"
+            android:background="@drawable/imagebutton"
+            />
+    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="left"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="60dp">
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <ImageView
+                        android:id="@+id/sonne"
+                        android:layout_width="66dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/sonne"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:contentDescription="@string/bild_stromproduktion" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <ProgressBar
+                        android:id="@+id/production_progress_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:indeterminate="true"
+                        android:indeterminateTint="@color/progress_bar"
+                        />
+
+                        <TextView
+                            android:id="@+id/production_wh"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/welcome_textcolor"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <ImageView
+                        android:id="@+id/electric"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_consumation"
+                        android:layout_marginBottom="20dp"
+                        android:contentDescription="@string/bild_stromverbrauch" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ProgressBar
+                            android:id="@+id/consumption_progress_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:indeterminate="true"
+                            android:indeterminateTint="@color/progress_bar"
+                            />
+
+                        <TextView
+                            android:id="@+id/consumation_wh"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="center"
+                            android:minWidth="200dp"
+                            android:text=""
+                            android:textColor="@color/welcome_textcolor"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <ImageView
+                        android:id="@+id/auto"
+                        android:layout_width="48dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/auto"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:contentDescription="@string/bild_autoverbrauch" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ProgressBar
+                            android:id="@+id/car_progress_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:indeterminate="true"
+                            android:indeterminateTint="@color/progress_bar"
+                            />
+
+                        <TextView
+                            android:id="@+id/auto_wh"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/welcome_textcolor"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+</LinearLayout>
+</LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="20dp"
+            >
+
+            <TextView
+                android:id="@+id/uhrzeit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="03.12.2021 14h34"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"
+                android:textColor="@color/welcome_textcolor"
+                />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>
