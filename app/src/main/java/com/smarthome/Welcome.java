@@ -2,14 +2,15 @@ package com.smarthome;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.hardware.display.DisplayManager;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Handler;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,10 +50,21 @@ public class Welcome extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getSolarPower();
-        getAllConsumption();
-        getCarConsumption();
+        DisplayManager dm = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
+        boolean screenOn = false;
+        for (Display display : dm.getDisplays()) {
+            if (display.getState() != Display.STATE_OFF) {
+                screenOn = true;
+            }
+        }
+        if (screenOn)
+        {
+            getSolarPower();
+            getAllConsumption();
+            getCarConsumption();
+        }
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,36 +84,32 @@ public class Welcome extends Fragment {
         uhrzeit = view.findViewById((R.id.uhrzeit));
 
         ImageButton btn_terrasse = view.findViewById(R.id.btn_terrasse);
-        btn_terrasse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btn_terrasse.setOnClickListener(view1 -> {
+            if (getActivity() != null) {
                 FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
                 fr.replace(R.id.container, new Terrasse()).commit();
             }
         });
 
         ImageButton btn_whirlpool = view.findViewById(R.id.btn_whirlpool);
-        btn_whirlpool.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btn_whirlpool.setOnClickListener(view12 -> {
+            if (getActivity() != null) {
                 FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
                 fr.replace(R.id.container, new Whirlpool()).commit();
             }
         });
 
         ImageButton btn_pool = view.findViewById(R.id.btn_pool);
-        btn_pool.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btn_pool.setOnClickListener(view13 -> {
+            if (getActivity() != null) {
                 FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
                 fr.replace(R.id.container, new Pool()).commit();
             }
         });
 
         ImageButton btn_cam = view.findViewById(R.id.btn_camera);
-        btn_cam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btn_cam.setOnClickListener(view14 -> {
+            if (getActivity() != null) {
                 FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
                 fr.replace(R.id.container, new Cam()).commit();
             }
@@ -127,9 +135,15 @@ public class Welcome extends Fragment {
 
     }
 
-    final Runnable welcomeUpdate = new Runnable() {
-        @RequiresApi(api = Build.VERSION_CODES.O)
-        public void run() {
+    final Runnable welcomeUpdate = () -> {
+        DisplayManager dm = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
+        boolean screenOn = false;
+        for (Display display : dm.getDisplays()) {
+            if (display.getState() != Display.STATE_OFF) {
+                screenOn = true;
+            }
+        }
+        if (screenOn) {
             getSolarPower();
             getAllConsumption();
             getCarConsumption();
