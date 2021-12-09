@@ -47,6 +47,8 @@ public class Welcome extends Fragment {
 
     private Context context;
 
+    private ScheduledExecutorService executor;
+
     @Override
     public void onResume() {
         super.onResume();
@@ -59,9 +61,10 @@ public class Welcome extends Fragment {
         }
         if (screenOn)
         {
-            getSolarPower();
-            getAllConsumption();
-            getCarConsumption();
+            if (executor.isTerminated()) {
+                executor = Executors.newScheduledThreadPool(1);
+                executor.scheduleAtFixedRate(welcomeUpdate, 0, 30, TimeUnit.SECONDS);
+            }
         }
     }
 
@@ -128,7 +131,7 @@ public class Welcome extends Fragment {
         // start it with:
         mHandler.post(runnable);
 
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(welcomeUpdate, 0, 30, TimeUnit.SECONDS);
 
         return view;
@@ -147,6 +150,9 @@ public class Welcome extends Fragment {
             getSolarPower();
             getAllConsumption();
             getCarConsumption();
+        } else {
+            // Wenn wir den executor nicht explizit stoppen wenn der Bildschirm ausgeschaltet ist, dann verbraucht die App im Hintergrund zuviel Strom.
+            executor.shutdown();
         }
     };
 
