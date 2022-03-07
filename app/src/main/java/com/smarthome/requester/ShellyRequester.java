@@ -21,6 +21,7 @@ import java.util.Map;
 public class ShellyRequester {
 
     private static final String QUERY_CONSUMPTION = "https://shelly-28-eu.shelly.cloud/device/status";
+    private static final String QUERY_ROLLADEN = "https://shelly-28-eu.shelly.cloud/device/relay/roller/control";
     Context appContext;
 
     public ShellyRequester(Context appContext) {
@@ -157,4 +158,44 @@ public class ShellyRequester {
         };
         MySingleton.getInstance(appContext).addToRequestQueue(request);
     }
+    public void shellyRequester25(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id, String direction) {
+
+        String url = QUERY_ROLLADEN;
+
+        StringRequest request = new StringRequest(Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    JSONArray jsonArr = new JSONArray();
+                    @Override
+                    public void onResponse(String response) {
+
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                volleyResponseListenerShelly.onError("Something wrong");
+            }
+        })
+
+        {
+
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("auth_key", auth_key);
+                params.put("id", id);
+                params.put("direction", direction);
+                return params;
+            }
+
+        };
+        MySingleton.getInstance(appContext).addToRequestQueue(request);
+    }
+
 }
