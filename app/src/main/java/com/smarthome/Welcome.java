@@ -3,7 +3,6 @@ package com.smarthome;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.display.DisplayManager;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +19,9 @@ import android.widget.TextView;
 
 import com.smarthome.requester.ShellyRequester;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -35,13 +37,19 @@ public class Welcome extends Fragment {
     private TextView solarProduction;
     private TextView aktConsumption;
     private TextView aktCar;
+    private TextView outdoor_temp;
+    private TextView pool_temp;
     private ProgressBar progress_solar;
     private ProgressBar progress_consumption;
     private ProgressBar progress_auto;
+    private ProgressBar progress_outdoor_temp;
+    private ProgressBar progress_pool_temp;
 
     private String solarPower;
     private String consumptionPower;
     private String carPower;
+    private String outdoorTemp;
+    private String poolTemp;
 
     private TextView uhrzeit;
 
@@ -81,9 +89,14 @@ public class Welcome extends Fragment {
         solarProduction = view.findViewById(R.id.production_wh);
         aktConsumption = view.findViewById(R.id.consumation_wh);
         aktCar = view.findViewById(R.id.auto_wh);
+        pool_temp = view.findViewById(R.id.pool_temp_text);
+        outdoor_temp = view.findViewById(R.id.outdoor_temp_text);
         progress_solar = view.findViewById(R.id.production_progress_bar);
         progress_consumption = view.findViewById(R.id.consumption_progress_bar);
         progress_auto = view.findViewById(R.id.car_progress_bar);
+        progress_outdoor_temp = view.findViewById(R.id.outdoor_temp_progress_bar);
+        progress_pool_temp = view.findViewById(R.id.pool_temp_progress_bar);
+
         uhrzeit = view.findViewById((R.id.uhrzeit));
 
         ImageButton btn_terrasse = view.findViewById(R.id.btn_terrasse);
@@ -150,6 +163,7 @@ public class Welcome extends Fragment {
             getSolarPower();
             getAllConsumption();
             getCarConsumption();
+            getOutDoorTemp();
         } else {
             // Wenn wir den executor nicht explizit stoppen wenn der Bildschirm ausgeschaltet ist, dann verbraucht die App im Hintergrund zuviel Strom.
             executor.shutdown();
@@ -189,6 +203,26 @@ public class Welcome extends Fragment {
         String transform = df.format(formatText);
         progress_auto.setVisibility(View.GONE);
         aktCar.setText(transform + " Wh");
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void changeTextOutdoorTemp (String mText)
+    {
+        NumberFormat nf = NumberFormat.getNumberInstance(new Locale("de","CH"));
+        nf.setMaximumFractionDigits(2);
+        DecimalFormat df = (DecimalFormat)nf;
+        progress_outdoor_temp.setVisibility(View.GONE);
+        outdoor_temp.setText(mText + " °");
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void changeTextPoolTemp (String mText)
+    {
+        NumberFormat nf = NumberFormat.getNumberInstance(new Locale("de","CH"));
+        nf.setMaximumFractionDigits(2);
+        DecimalFormat df = (DecimalFormat)nf;
+        progress_pool_temp.setVisibility(View.GONE);
+        pool_temp.setText(mText + " °");
     }
 
     public void getSolarPower() {
@@ -234,6 +268,11 @@ public class Welcome extends Fragment {
             }
 
             @Override
+            public void onResponse(JSONArray aktTemp) {
+
+            }
+
+            @Override
             public void onResponse(String shellyPower) {
                 changeTextConsumptionwH(shellyPower);
             }
@@ -259,10 +298,48 @@ public class Welcome extends Fragment {
             }
 
             @Override
+            public void onResponse(JSONArray aktTemp) {
+
+            }
+
+            @Override
             public void onResponse(String shellyPower) {
                 changeTextAutowH(shellyPower);
             }
         }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "E8db84d2d395");
+    }
+
+    public void getOutDoorTemp() {
+        new ShellyRequester(context).shellyRequester1PMTemp(new ShellyRequester.VolleyResponseListenerShelly() {
+            @Override
+            public void onError(String message) {
+                outdoorTemp = message;
+                changeTextOutdoorTemp(outdoorTemp);
+            }
+
+            @Override
+            public void onResponse(Integer shellyPower) {
+
+            }
+
+            @Override
+            public void onResponse(JSONArray aktTemp) {
+                try {
+                    outdoorTemp = String.valueOf(aktTemp.getJSONObject(0).getDouble("tC"));
+                    poolTemp = String.valueOf(aktTemp.getJSONObject(1).getDouble("tC"));
+                    changeTextOutdoorTemp(outdoorTemp);
+                    changeTextPoolTemp(poolTemp);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onResponse(String shellyPower) {
+
+            }
+        }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84d2e9b5");
     }
 
 }

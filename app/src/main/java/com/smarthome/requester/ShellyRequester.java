@@ -34,6 +34,8 @@ public class ShellyRequester {
         void onResponse(String shellyPower);
 
         void onResponse(Integer shellyPower);
+
+        void onResponse(JSONArray aktTemp);
     }
 
     public void shellyRequesterEM3(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id) {
@@ -158,6 +160,52 @@ public class ShellyRequester {
         };
         MySingleton.getInstance(appContext).addToRequestQueue(request);
     }
+    public void shellyRequester1PMTemp(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id) {
+
+        String url = QUERY_CONSUMPTION;
+
+        StringRequest request = new StringRequest(Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    JSONArray jsonArr = new JSONArray();
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject aktTemp = new JSONObject(response);
+                            aktTemp = aktTemp.getJSONObject("data");
+                            aktTemp = aktTemp.getJSONObject("device_status");
+                            JSONArray temp = aktTemp.getJSONArray("ext_temperature");
+                            volleyResponseListenerShelly.onResponse(temp);
+                        }catch (JSONException err){
+                            volleyResponseListenerShelly.onResponse("no Connect to catch");
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                volleyResponseListenerShelly.onError("Something wrong");
+            }
+        })
+
+        {
+
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("auth_key", auth_key);
+                params.put("id", id);
+                return params;
+            }
+        };
+        MySingleton.getInstance(appContext).addToRequestQueue(request);
+    }
+
     public void shellyRequester25(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id, String direction) {
 
         String url = QUERY_ROLLADEN;

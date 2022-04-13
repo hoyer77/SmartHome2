@@ -159,6 +159,38 @@
                             android:textSize="20sp" />
                     </RelativeLayout>
 
+                    <ImageView
+                        android:id="@+id/outdoor_temp"
+                        android:layout_width="66dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/icon_aussen_temp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="20dp"
+                        android:contentDescription="@string/bild_temp_outdoor" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ProgressBar
+                            android:id="@+id/outdoor_temp_progress_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:indeterminate="true"
+                            android:indeterminateTint="@color/progress_bar"
+                            />
+
+                        <TextView
+                            android:id="@+id/outdoor_temp_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/welcome_textcolor"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
+
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="120dp"
@@ -195,7 +227,37 @@
                             android:textColor="@color/welcome_textcolor"
                             android:textSize="20sp" />
                     </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/pool_temp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_pool_temp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="20dp"
+                        android:contentDescription="@string/bild_temp_pool" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ProgressBar
+                            android:id="@+id/pool_temp_progress_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:indeterminate="true"
+                            android:indeterminateTint="@color/progress_bar"
+                            />
 
+                        <TextView
+                            android:id="@+id/pool_temp_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="center"
+                            android:minWidth="200dp"
+                            android:text=""
+                            android:textColor="@color/welcome_textcolor"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="120dp"

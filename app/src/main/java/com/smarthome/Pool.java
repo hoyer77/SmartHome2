@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 
 import com.smarthome.requester.ShellyRequester;
 
+import org.json.JSONArray;
+
 public class Pool extends Fragment {
 
     private Context context;
@@ -57,6 +59,11 @@ public class Pool extends Fragment {
                     }
 
                     @Override
+                    public void onResponse(JSONArray aktTemp) {
+
+                    }
+
+                    @Override
                     public void onResponse(String shellyPower) {
 
                     }
@@ -76,6 +83,11 @@ public class Pool extends Fragment {
 
                     @Override
                     public void onResponse(Integer shellyPower) {
+                    }
+
+                    @Override
+                    public void onResponse(JSONArray aktTemp) {
+
                     }
 
                     @Override
@@ -99,6 +111,11 @@ public class Pool extends Fragment {
 
                     @Override
                     public void onResponse(Integer shellyPower) {
+                    }
+
+                    @Override
+                    public void onResponse(JSONArray aktTemp) {
+
                     }
 
                     @Override
