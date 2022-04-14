@@ -325,8 +325,14 @@ public class Welcome extends Fragment {
             @Override
             public void onResponse(JSONArray aktTemp) {
                 try {
-                    outdoorTemp = String.valueOf(aktTemp.getJSONObject(0).getDouble("tC"));
-                    poolTemp = String.valueOf(aktTemp.getJSONObject(1).getDouble("tC"));
+                   String hardware = aktTemp.getJSONObject(0).getString("hwID");
+                    if (hardware.equals("28e8d776e0013c26")) {
+                        outdoorTemp = String.valueOf(aktTemp.getJSONObject(0).getDouble("tC"));
+                        poolTemp = String.valueOf(aktTemp.getJSONObject(1).getDouble("tC"));
+                    } else {
+                        outdoorTemp = String.valueOf(aktTemp.getJSONObject(1).getDouble("tC"));
+                        poolTemp = String.valueOf(aktTemp.getJSONObject(0).getDouble("tC"));
+                    }
                     changeTextOutdoorTemp(outdoorTemp);
                     changeTextPoolTemp(poolTemp);
                 } catch (JSONException e) {
