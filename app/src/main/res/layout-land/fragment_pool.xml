@@ -88,7 +88,7 @@
                                     android:layout_height="wrap_content"
                                     android:thumb="@drawable/thumb1"
                                     app:track="@drawable/track"
-                                    android:id="@+id/switch_blumen"/>
+                                    android:id="@+id/switch_pool_blumen"/>
                             </LinearLayout>
                         </LinearLayout>
 
@@ -134,7 +134,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="50dp">
                             <com.google.android.material.slider.Slider
-                                android:id="@+id/slider_whirlpool"
+                                android:id="@+id/slider_pool"
                                 android:stepSize="1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_gravity="right">
                 <ImageButton
-                    android:id="@+id/szene_whirlpool_hell"
+                    android:id="@+id/szene_pool_hell"
                     android:layout_width="50dp"
                     android:layout_height="46dp"
                     android:layout_marginLeft="20dp"
@@ -201,7 +201,7 @@
                     android:background="@drawable/szene_hell"
                     />
                 <ImageButton
-                    android:id="@+id/szene_whirlpool_weiss"
+                    android:id="@+id/szene_pool_weiss"
                     android:layout_width="50dp"
                     android:layout_height="46dp"
                     android:layout_marginLeft="10dp"
@@ -211,7 +211,7 @@
                     />
 
                 <ImageButton
-                    android:id="@+id/szene_whirlpool_energie"
+                    android:id="@+id/szene_pool_energie"
                     android:layout_width="50dp"
                     android:layout_height="46dp"
                     android:layout_marginLeft="10dp"
@@ -220,7 +220,7 @@
                     android:background="@drawable/szene_energie"
                     />
                 <ImageButton
-                    android:id="@+id/szene_whirlpool_sonnenuntergang"
+                    android:id="@+id/szene_pool_sonnenuntergang"
                     android:layout_width="50dp"
                     android:layout_height="46dp"
                     android:tag="sonne"
@@ -229,7 +229,7 @@
                     android:background="@drawable/szene_sonnenuntergang"
                     />
                 <ImageButton
-                    android:id="@+id/szene_whirlpool_tropen"
+                    android:id="@+id/szene_pool_tropen"
                     android:layout_width="50dp"
                     android:layout_height="46dp"
                     android:layout_marginLeft="10dp"
