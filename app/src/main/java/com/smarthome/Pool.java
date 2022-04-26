@@ -86,22 +86,22 @@ public class Pool extends Fragment {
 
                     @Override
                     public void onError(String message) {
-                        getStateStandard(sw,"4");
+                        getStateStandard(sw_massiv,"4");
                     }
 
                     @Override
                     public void onResponse(String hueState) {
-                        getStateStandard(sw,"4");
+                        getStateStandard(sw_massiv,"4");
                     }
 
                     @Override
                     public void onResponse(Integer hueState) {
-                        getStateStandard(sw,"4");
+                        getStateStandard(sw_massiv,"4");
                     }
 
                     @Override
                     public void onResponse(Boolean hueState) {
-                        getStateStandard(sw,"4");
+                        getStateStandard(sw_massiv,"4");
                     }
                 }, "4");
             }
@@ -181,15 +181,15 @@ public class Pool extends Fragment {
         ImageButton btntropen= view.findViewById(R.id.szene_pool_tropen);
 
         Map<String, String> buttonScenes = new HashMap<String, String>();
-        buttonScenes.put("hell", "r4HyYTkLgg1Nptm");
+        buttonScenes.put("hell", "Zgeu6dS5zujOCFf");
         buttonScenes.put("hell1", "77-qmddnlkCicWx");
-        buttonScenes.put("weiss", "BA4mXLbEP1qQz1w");
+        buttonScenes.put("weiss", "keMVkwzByMGXVgP");
         buttonScenes.put("weiss1", "u87djJZRZ1sshU3");
-        buttonScenes.put("energie", "6urcyZ95U-GjykM");
+        buttonScenes.put("energie", "NTG0q9KJCtBDxUX");
         buttonScenes.put("energie1", "zPsXxZ7as9EIVqK");
-        buttonScenes.put("sonne", "Xtb2fld5Q8TWXfk");
+        buttonScenes.put("sonne", "HPguGiw5qWH-afC");
         buttonScenes.put("sonne1", "7fmjmC5C-cOpQqO");
-        buttonScenes.put("tropen", "CXxpByzqPGU0Qap");
+        buttonScenes.put("tropen", "pXxakauRONqXKbj");
         buttonScenes.put("tropen1", "AS7BFvo0PkPK6qp");
 
         View.OnClickListener onClickListenerButtons = new View.OnClickListener() {
