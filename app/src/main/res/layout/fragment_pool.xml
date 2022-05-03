@@ -247,22 +247,12 @@
                 android:layout_gravity="left"
                 >
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_width="60dp"
+                    android:layout_height="100dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_abdeckung"
+                    android:src="@drawable/pool_abeckung"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="Poolabeckung"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="30dp"
-                    android:textColor="@color/welcome_textcolor"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -275,7 +265,7 @@
                         android:tag="up"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="30dp"
-                        android:background="@drawable/ic_up"
+                        android:background="@drawable/pfeil_up"
                         />
                     <ImageButton
                         android:id="@+id/pool_stop"
@@ -285,7 +275,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/ic_pause"
+                        android:background="@drawable/pause"
                         />
                     <ImageButton
                         android:id="@+id/pool_down"
@@ -295,7 +285,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/ic_down"
+                        android:background="@drawable/pfeil_down"
                         />
 
                 </LinearLayout>
