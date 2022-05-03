@@ -76,93 +76,189 @@
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="50dp">
+
                             <com.google.android.material.slider.Slider
                                 android:id="@+id/slider_terrasse"
-                                android:stepSize="1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:stepSize="1"
                                 android:valueFrom="0"
                                 android:valueTo="100"
-                                app:labelBehavior="floating"
                                 app:haloColor="@color/halo_color"
+                                app:labelBehavior="floating"
                                 app:thumbColor="@color/app_yellow"
-                                app:thumbStrokeWidth="4dp"
-                                app:thumbStrokeColor="@color/background_dreieck"
                                 app:thumbRadius="20dp"
-                                app:trackColorInactive="@color/halo_color"
-                                app:trackColorActive="@color/app_yellow"
-                                app:tickColorInactive="@color/halo_color"
+                                app:thumbStrokeColor="@color/background_dreieck"
+                                app:thumbStrokeWidth="4dp"
                                 app:tickColorActive="@color/app_yellow"
+                                app:tickColorInactive="@color/halo_color"
+                                app:trackColorActive="@color/app_yellow"
+                                app:trackColorInactive="@color/halo_color"
                                 app:trackHeight="20dp"
-                                />
+                                tools:ignore="SpeakableTextPresentCheck" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginEnd="20dp"
-            tools:ignore="RtlHardcoded"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="RtlHardcoded">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="right">
+                android:layout_gravity="right"
+                android:layout_marginTop="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsblack"
                     android:text="@string/smart"
                     android:textColor="@color/welcome_textcolor"
-                    android:fontFamily="@font/poppinsblack"
                     android:textSize="32sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/home"
                     android:fontFamily="@font/poppins"
-                    android:textSize="32sp"
-                    android:textColor="@color/welcome_textcolor" />
+                    android:text="@string/home"
+                    android:textColor="@color/welcome_textcolor"
+                    android:textSize="32sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:layout_marginTop="50dp">
+
                 <ImageButton
                     android:id="@+id/szene_terrasse_hell"
                     android:layout_width="50dp"
                     android:layout_height="46dp"
                     android:layout_marginLeft="20dp"
-                    android:tag="hell"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/szene_hell"
-                    />
+                    android:tag="hell" />
+
                 <ImageButton
                     android:id="@+id/szene_terrasse_weiss"
                     android:layout_width="50dp"
                     android:layout_height="46dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:tag="weiss"
                     android:background="@drawable/szene_weiss"
-                    />
+                    android:tag="weiss" />
 
                 <ImageButton
                     android:id="@+id/szene_terrasse_energie"
                     android:layout_width="50dp"
                     android:layout_height="46dp"
                     android:layout_marginLeft="10dp"
-                    android:tag="energie"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/szene_energie"
-                    />
+                    android:tag="energie" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="60dp">
+
+                <ImageButton
+                    android:id="@+id/pergola_dach_zu"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/pfeil_left"
+                    android:tag="energie"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/pergola_dach_stop"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/pause"
+                    android:tag="energie"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/pergola_dach_offen"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/pfeil_right"
+                    android:tag="energie"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="60dp"
+                        android:src="@drawable/pergola_1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/storen_up"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/pfeil_up"
+                        android:tag="up" />
+
+                    <ImageButton
+                        android:id="@+id/storen_stop"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/pause"
+                        android:tag="stop" />
+
+                    <ImageButton
+                        android:id="@+id/storen_down"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/pfeil_down"
+                        android:tag="down" />
+
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </FrameLayout>
