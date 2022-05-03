@@ -15,7 +15,11 @@ import android.widget.ImageButton;
 
 import com.smarthome.requester.HueRequester;
 import com.google.android.material.slider.Slider;
+import com.smarthome.requester.TahomaRequester;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +28,12 @@ public class Terrasse extends Fragment {
     private Context context;
 
     ImageButton back;
+    ImageButton dachOpen;
+    ImageButton dachClose;
+    ImageButton dachStop;
+    ImageButton storenClose;
+    ImageButton storenOpen;
+    ImageButton storenStop;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,7 +45,7 @@ public class Terrasse extends Fragment {
         context = view.getContext();
 
         // Szene-Einstellungen
-        ImageButton btnenergie= view.findViewById(R.id.szene_terrasse_energie);
+        ImageButton btnenergie= view.findViewById(R.id.pergola_dach_zu);
         ImageButton btnweiss= view.findViewById(R.id.szene_terrasse_weiss);
         ImageButton btnhell= view.findViewById(R.id.szene_terrasse_hell);
 
@@ -154,6 +164,98 @@ public class Terrasse extends Fragment {
             public void onClick(View v) {
                 FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
                 fr.replace(R.id.container, new Welcome()).commit();
+            }
+        });
+
+        // StorenSteuerung
+        storenOpen = (ImageButton) view.findViewById(R.id.storen_up);
+        storenOpen.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                try {
+                    new TahomaRequester(context).storenSteuerung("open");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        storenClose = (ImageButton) view.findViewById(R.id.storen_down);
+        storenClose.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                try {
+                    new TahomaRequester(context).storenSteuerung("close");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        storenStop = (ImageButton) view.findViewById(R.id.storen_stop);
+        storenStop.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                try {
+                    new TahomaRequester(context).storenSteuerung("stop");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        // DachSteuerung
+        dachOpen = (ImageButton) view.findViewById(R.id.pergola_dach_offen);
+        dachOpen.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                try {
+                    new TahomaRequester(context).dachSteuerung("close");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        dachClose = (ImageButton) view.findViewById(R.id.pergola_dach_zu);
+        dachClose.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                try {
+                    new TahomaRequester(context).dachSteuerung("open");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        dachStop = (ImageButton) view.findViewById(R.id.pergola_dach_stop);
+        dachStop.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                try {
+                    new TahomaRequester(context).dachSteuerung("stop");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
