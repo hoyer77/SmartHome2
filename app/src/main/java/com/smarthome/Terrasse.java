@@ -61,7 +61,6 @@ public class Terrasse extends Fragment {
             }
         });
 
-
         // Szene-Einstellungen
         ImageButton btnenergie= view.findViewById(R.id.pergola_dach_zu);
         ImageButton btnweiss= view.findViewById(R.id.szene_terrasse_weiss);
