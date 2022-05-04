@@ -16,7 +16,9 @@ import android.widget.ImageButton;
 import com.smarthome.requester.HueRequester;
 import com.google.android.material.slider.Slider;
 import com.smarthome.requester.TahomaRequester;
+import com.smarthome.requester.TahomaTokenRequester;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -35,6 +37,8 @@ public class Terrasse extends Fragment {
     ImageButton storenOpen;
     ImageButton storenStop;
 
+    private String token;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,6 +47,20 @@ public class Terrasse extends Fragment {
         View view = inflater.inflate(R.layout.fragment_terrasse,container,false);
 
         context = view.getContext();
+
+        // Wir versuchen einen Tahoma-Token zu lösen
+        new TahomaTokenRequester(context).getAuthorization(new TahomaTokenRequester.VolleyResponseListenerTahoma() {
+
+            @Override
+            public void onError(String message) {
+            }
+
+            @Override
+            public void onResponse(String responseToken) {
+                token = responseToken;
+            }
+        });
+
 
         // Szene-Einstellungen
         ImageButton btnenergie= view.findViewById(R.id.pergola_dach_zu);
@@ -174,7 +192,11 @@ public class Terrasse extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    new TahomaRequester(context).storenSteuerung("open");
+                    if (token != "") {
+                        new TahomaRequester(context).storenSteuerung("open", token);
+                    } else {
+                        new TahomaRequester(context).storenSteuerung("open", "6270d66e8e829d0013bf");
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -189,7 +211,11 @@ public class Terrasse extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    new TahomaRequester(context).storenSteuerung("close");
+                    if (token != "") {
+                        new TahomaRequester(context).storenSteuerung("close", token);
+                    } else {
+                        new TahomaRequester(context).storenSteuerung("close", "6270d66e8e829d0013bf");
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -204,7 +230,11 @@ public class Terrasse extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    new TahomaRequester(context).storenSteuerung("stop");
+                    if (token != "") {
+                        new TahomaRequester(context).storenSteuerung("stop", token);
+                    } else {
+                        new TahomaRequester(context).storenSteuerung("stop", "6270d66e8e829d0013bf");
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -220,7 +250,11 @@ public class Terrasse extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    new TahomaRequester(context).dachSteuerung("close");
+                    if (token != "") {
+                        new TahomaRequester(context).dachSteuerung("close", token);
+                    } else {
+                        new TahomaRequester(context).dachSteuerung("close", "6270d66e8e829d0013bf");
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -235,7 +269,11 @@ public class Terrasse extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    new TahomaRequester(context).dachSteuerung("open");
+                    if (token != "") {
+                        new TahomaRequester(context).dachSteuerung("open", token);
+                    } else {
+                        new TahomaRequester(context).dachSteuerung("open", "6270d66e8e829d0013bf");
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -250,7 +288,11 @@ public class Terrasse extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    new TahomaRequester(context).dachSteuerung("stop");
+                    if (token != "") {
+                        new TahomaRequester(context).dachSteuerung("stop", token);
+                    } else {
+                        new TahomaRequester(context).dachSteuerung("stop", "6270d66e8e829d0013bf");
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
