@@ -101,7 +101,6 @@ public class Terrasse extends Fragment {
         btnweiss.setOnClickListener(onClickListenerButtons);
         btnhell.setOnClickListener(onClickListenerButtons);
 
-
         // Licht Switch konfigurieren und ausführen lassen
         SwitchCompat sw = view.findViewById(R.id.switch_terrasse);
         getStateStandard(sw);
