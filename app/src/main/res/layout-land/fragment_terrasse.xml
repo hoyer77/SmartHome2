@@ -175,28 +175,28 @@
 
                 <ImageButton
                     android:id="@+id/pergola_dach_zu"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/pfeil_left"
                     android:tag="energie"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <ImageButton
                     android:id="@+id/pergola_dach_stop"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/pause"
                     android:tag="energie"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <ImageButton
                     android:id="@+id/pergola_dach_offen"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/pfeil_right"
@@ -209,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="20dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -230,8 +230,8 @@
 
                     <ImageButton
                         android:id="@+id/storen_up"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="30dp"
                         android:background="@drawable/pfeil_up"
@@ -239,10 +239,10 @@
 
                     <ImageButton
                         android:id="@+id/storen_stop"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         android:layout_marginLeft="22dp"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="40dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/pause"
                         android:tag="stop" />
@@ -250,9 +250,9 @@
                     <ImageButton
                         android:id="@+id/storen_down"
                         android:layout_width="30dp"
-                        android:layout_height="40dp"
+                        android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="40dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/pfeil_down"
                         android:tag="down" />
