@@ -20,14 +20,14 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <ImageButton
                     android:id="@+id/btn_back"
-                    android:layout_width="57dp"
-                    android:layout_height="60dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_back"
+                    android:layout_width="38dp"
+                    android:layout_height="40dp"
                     android:background="@null"
-                    />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_back" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -52,16 +52,18 @@
                         android:textColor="@color/welcome_textcolor" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="0dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -70,111 +72,115 @@
                         android:text="@string/pool"
                         android:textColor="@color/welcome_textcolor"
                         android:textSize="32sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="left"
                         android:orientation="vertical">
+
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
+                            android:layout_height="wrap_content">
+
                             <LinearLayout
                                 android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                >
+                                android:layout_height="wrap_content">
+
                                 <ImageView
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:src="@drawable/ic_licht"
-                                    />
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ic_licht" />
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="@string/blumen"
                                     android:layout_marginStart="20dp"
                                     android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="@string/blumen"
                                     android:textColor="@color/welcome_textcolor"
                                     android:textSize="18sp"
-                                    android:textStyle="bold"
-                                    />
+                                    android:textStyle="bold" />
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
+
                                 <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/switch_pool_blumen"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:thumb="@drawable/thumb1"
-                                    app:track="@drawable/track"
-                                    android:id="@+id/switch_pool_blumen"/>
+                                    app:track="@drawable/track" />
                             </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            >
+                            android:layout_marginTop="30dp">
+
                             <LinearLayout
                                 android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                >
+                                android:layout_height="wrap_content">
+
                                 <ImageView
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:src="@drawable/ic_licht"
-                                    />
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ic_licht" />
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="@string/poolwand"
                                     android:layout_marginStart="20dp"
                                     android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="@string/poolwand"
                                     android:textColor="@color/welcome_textcolor"
                                     android:textSize="18sp"
-                                    android:textStyle="bold"
-                                    />
+                                    android:textStyle="bold" />
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
+
                                 <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/switch_poolwand"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:thumb="@drawable/thumb1"
-                                    app:track="@drawable/track"
-                                    android:id="@+id/switch_poolwand"/>
+                                    app:track="@drawable/track" />
                             </LinearLayout>
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp">
+                            android:layout_marginTop="30dp">
+
                             <com.google.android.material.slider.Slider
                                 android:id="@+id/slider_pool"
-                                android:stepSize="1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:stepSize="1"
                                 android:valueFrom="0"
                                 android:valueTo="100"
-                                app:labelBehavior="floating"
                                 app:haloColor="@color/halo_color"
+                                app:labelBehavior="floating"
                                 app:thumbColor="@color/app_yellow"
-                                app:thumbStrokeWidth="4dp"
-                                app:thumbStrokeColor="@color/background_dreieck"
                                 app:thumbRadius="20dp"
-                                app:trackColorInactive="@color/halo_color"
-                                app:trackColorActive="@color/app_yellow"
-                                app:tickColorInactive="@color/halo_color"
+                                app:thumbStrokeColor="@color/background_dreieck"
+                                app:thumbStrokeWidth="4dp"
                                 app:tickColorActive="@color/app_yellow"
-                                app:trackHeight="20dp"
-                                />
+                                app:tickColorInactive="@color/halo_color"
+                                app:trackColorActive="@color/app_yellow"
+                                app:trackColorInactive="@color/halo_color"
+                                app:trackHeight="20dp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -186,110 +192,108 @@
             android:layout_marginEnd="20dp"
             tools:ignore="RtlHardcoded"
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_gravity="right">
-                <ImageButton
-                    android:id="@+id/szene_pool_hell"
-                    android:layout_width="50dp"
-                    android:layout_height="46dp"
-                    android:layout_marginLeft="20dp"
-                    android:tag="hell"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/szene_hell"
-                    />
-                <ImageButton
-                    android:id="@+id/szene_pool_weiss"
-                    android:layout_width="50dp"
-                    android:layout_height="46dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:tag="weiss"
-                    android:background="@drawable/szene_weiss"
-                    />
-
-                <ImageButton
-                    android:id="@+id/szene_pool_energie"
-                    android:layout_width="50dp"
-                    android:layout_height="46dp"
-                    android:layout_marginLeft="10dp"
-                    android:tag="energie"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/szene_energie"
-                    />
-                <ImageButton
-                    android:id="@+id/szene_pool_sonnenuntergang"
-                    android:layout_width="50dp"
-                    android:layout_height="46dp"
-                    android:tag="sonne"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/szene_sonnenuntergang"
-                    />
-                <ImageButton
-                    android:id="@+id/szene_pool_tropen"
-                    android:layout_width="50dp"
-                    android:layout_height="46dp"
-                    android:layout_marginLeft="10dp"
-                    android:tag="tropen"
-                    android:layout_marginRight="30dp"
-                    android:background="@drawable/szene_tropen"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="60dp"
-                android:layout_gravity="left"
-                >
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/pool_abeckung"
-                    />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-                    <ImageButton
-                        android:id="@+id/pool_up"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:tag="up"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="30dp"
-                        android:background="@drawable/pfeil_up"
-                        />
-                    <ImageButton
-                        android:id="@+id/pool_stop"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:tag="stop"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/pause"
-                        />
-                    <ImageButton
-                        android:id="@+id/pool_down"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:tag="down"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/pfeil_down"
-                        />
+                    android:layout_gravity="right"
+                    android:layout_marginTop="30dp">
 
+                    <ImageButton
+                        android:id="@+id/szene_pool_hell"
+                        android:layout_width="50dp"
+                        android:layout_height="46dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/szene_hell"
+                        android:tag="hell" />
+
+                    <ImageButton
+                        android:id="@+id/szene_pool_weiss"
+                        android:layout_width="50dp"
+                        android:layout_height="46dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/szene_weiss"
+                        android:tag="weiss" />
+
+                    <ImageButton
+                        android:id="@+id/szene_pool_energie"
+                        android:layout_width="50dp"
+                        android:layout_height="46dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/szene_energie"
+                        android:tag="energie" />
+
+                    <ImageButton
+                        android:id="@+id/szene_pool_sonnenuntergang"
+                        android:layout_width="50dp"
+                        android:layout_height="46dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/szene_sonnenuntergang"
+                        android:tag="sonne" />
+
+                    <ImageButton
+                        android:id="@+id/szene_pool_tropen"
+                        android:layout_width="50dp"
+                        android:layout_height="46dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/szene_tropen"
+                        android:tag="tropen" />
                 </LinearLayout>
-            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="40dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/pool_abeckung" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/pool_up"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="30dp"
+                            android:background="@drawable/pfeil_up"
+                            android:tag="up" />
+
+                        <ImageButton
+                            android:id="@+id/pool_stop"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/pause"
+                            android:tag="stop" />
+
+                        <ImageButton
+                            android:id="@+id/pool_down"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/pfeil_down"
+                            android:tag="down" />
+
+                    </LinearLayout>
+                </LinearLayout>
 
 
         </LinearLayout>

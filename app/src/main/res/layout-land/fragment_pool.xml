@@ -20,14 +20,14 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <ImageButton
                     android:id="@+id/btn_back"
-                    android:layout_width="57dp"
-                    android:layout_height="60dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_back"
+                    android:layout_width="38dp"
+                    android:layout_height="40dp"
                     android:background="@null"
-                    />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_back" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -63,11 +63,11 @@
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
                                 >
+
                                 <ImageView
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:src="@drawable/ic_licht"
-                                    />
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ic_licht" />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -101,11 +101,11 @@
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
                                 >
+
                                 <ImageView
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:src="@drawable/ic_licht"
-                                    />
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ic_licht" />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -129,29 +129,30 @@
                                     android:id="@+id/switch_poolwand"/>
                             </LinearLayout>
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp">
+                            android:layout_marginTop="30dp">
+
                             <com.google.android.material.slider.Slider
                                 android:id="@+id/slider_pool"
-                                android:stepSize="1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:stepSize="1"
                                 android:valueFrom="0"
                                 android:valueTo="100"
-                                app:labelBehavior="floating"
                                 app:haloColor="@color/halo_color"
+                                app:labelBehavior="floating"
                                 app:thumbColor="@color/app_yellow"
-                                app:thumbStrokeWidth="4dp"
-                                app:thumbStrokeColor="@color/background_dreieck"
                                 app:thumbRadius="20dp"
-                                app:trackColorInactive="@color/halo_color"
-                                app:trackColorActive="@color/app_yellow"
-                                app:tickColorInactive="@color/halo_color"
+                                app:thumbStrokeColor="@color/background_dreieck"
+                                app:thumbStrokeWidth="4dp"
                                 app:tickColorActive="@color/app_yellow"
-                                app:trackHeight="20dp"
-                                />
+                                app:tickColorInactive="@color/halo_color"
+                                app:trackColorActive="@color/app_yellow"
+                                app:trackColorInactive="@color/halo_color"
+                                app:trackHeight="20dp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -261,8 +262,8 @@
 
                     <ImageButton
                         android:id="@+id/pool_up"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="30dp"
                         android:background="@drawable/pfeil_up"
@@ -270,20 +271,20 @@
 
                     <ImageButton
                         android:id="@+id/pool_stop"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="30dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/pause"
                         android:tag="stop" />
 
                     <ImageButton
                         android:id="@+id/pool_down"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="30dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/pfeil_down"
                         android:tag="down" />

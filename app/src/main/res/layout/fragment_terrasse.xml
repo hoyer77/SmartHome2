@@ -20,15 +20,15 @@
             <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <ImageButton
-                android:id="@+id/btn_back"
-                android:layout_width="57dp"
-                android:layout_height="60dp"
 
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_back"
-                android:background="@null"
-                />
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="38dp"
+                    android:layout_height="40dp"
+
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_back" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -53,17 +53,19 @@
                         android:textColor="@color/welcome_textcolor" />
                 </LinearLayout>
         </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="left">
+                android:layout_gravity="left"
+                android:layout_marginTop="0dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -72,53 +74,56 @@
                         android:text="@string/terrasse"
                         android:textColor="@color/welcome_textcolor"
                         android:textSize="32sp"
-                        android:textStyle="bold"
-                    />
+                        android:textStyle="bold" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="left"
                         android:orientation="vertical">
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/ic_licht"
-                            />
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:thumb="@drawable/thumb1"
-                            app:track="@drawable/track"
-                            android:layout_marginStart="40dp"
-                            android:id="@+id/switch_terrasse"/>
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_licht" />
+
+                            <androidx.appcompat.widget.SwitchCompat
+                                android:id="@+id/switch_terrasse"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="40dp"
+                                android:thumb="@drawable/thumb1"
+                                app:track="@drawable/track" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp">
+                            android:layout_marginTop="30dp">
+
                             <com.google.android.material.slider.Slider
                                 android:id="@+id/slider_terrasse"
-                                android:stepSize="1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:stepSize="1"
                                 android:valueFrom="0"
                                 android:valueTo="100"
-                                app:labelBehavior="floating"
                                 app:haloColor="@color/halo_color"
+                                app:labelBehavior="floating"
                                 app:thumbColor="@color/app_yellow"
-                                app:thumbStrokeWidth="4dp"
-                                app:thumbStrokeColor="@color/background_dreieck"
                                 app:thumbRadius="20dp"
-                                app:trackColorInactive="@color/halo_color"
-                                app:trackColorActive="@color/app_yellow"
-                                app:tickColorInactive="@color/halo_color"
+                                app:thumbStrokeColor="@color/background_dreieck"
+                                app:thumbStrokeWidth="4dp"
                                 app:tickColorActive="@color/app_yellow"
-                                app:trackHeight="20dp"
-                                />
+                                app:tickColorInactive="@color/halo_color"
+                                app:trackColorActive="@color/app_yellow"
+                                app:trackColorInactive="@color/halo_color"
+                                app:trackHeight="20dp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -134,7 +139,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp">
+                    android:layout_marginTop="30dp">
 
                     <ImageButton
                         android:id="@+id/szene_terrasse_hell"
