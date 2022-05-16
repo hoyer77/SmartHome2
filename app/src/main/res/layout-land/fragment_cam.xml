@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_app">
+        android:background="@color/black">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -30,30 +30,34 @@
                     android:src="@drawable/ic_back" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="80dp"
             android:orientation="vertical">
+
             <org.videolan.libvlc.util.VLCVideoLayout
                 android:id="@+id/videoLayout"
-                android:layout_above="@+id/btn_play_pause"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_play_pause" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="120dp"
-            android:orientation="vertical"
-            android:gravity="bottom">
+            android:layout_marginTop="80dp"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
             <ImageButton
-                android:layout_alignParentBottom="true"
                 android:id="@+id/btn_play_pause"
-                android:src="@drawable/ic_play_button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/ic_play_button" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"

@@ -13,4 +13,5 @@
     <color name="app_yellow">#f3bb33</color>
     <color name="halo_color">#FFD48D</color>
     <color name="progress_bar">#111825</color>
+    <color name="background_cardview">#212429</color>
 </resources>

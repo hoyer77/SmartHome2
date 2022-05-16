@@ -9,237 +9,346 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_app">
+        android:background="@color/black">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-                <ImageButton
-                    android:id="@+id/btn_back"
-                    android:layout_width="38dp"
-                    android:layout_height="40dp"
-
-                    android:background="@null"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_back" />
-            </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:orientation="horizontal"
+                android:paddingStart="30dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:orientation="vertical">
+                    android:layout_marginTop="30dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="@string/whirlpool"
+                        android:fontFamily="@font/poppinsblack"
+                        android:text="@string/smart"
                         android:textColor="@color/welcome_textcolor"
-                        android:textSize="32sp"
-                        android:textStyle="bold"
-                        />
-                    <LinearLayout
+                        android:textSize="32sp" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="left"
-                        android:orientation="vertical">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <LinearLayout
-                                android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                >
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/home"
+                        android:textColor="@color/welcome_textcolor"
+                        android:textSize="32sp" />
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/ic_licht" />
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="@string/blumen"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginTop="10dp"
-                                    android:textColor="@color/welcome_textcolor"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold"
-                                    />
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-                                <androidx.appcompat.widget.SwitchCompat
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:thumb="@drawable/thumb1"
-                                    app:track="@drawable/track"
-                                    android:id="@+id/switch_blumen"/>
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            >
-                            <LinearLayout
-                                android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                >
-
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/ic_licht" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins"
-                                android:text="@string/terrasse"
-                                android:layout_marginStart="20dp"
-                                android:layout_marginTop="10dp"
-                                android:textColor="@color/welcome_textcolor"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                />
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-                            <androidx.appcompat.widget.SwitchCompat
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:thumb="@drawable/thumb1"
-                                app:track="@drawable/track"
-                                android:id="@+id/switch_terrasse"/>
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp">
-
-                            <com.google.android.material.slider.Slider
-                                android:id="@+id/slider_whirlpool"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:stepSize="1"
-                                android:valueFrom="0"
-                                android:valueTo="100"
-                                app:haloColor="@color/halo_color"
-                                app:labelBehavior="floating"
-                                app:thumbColor="@color/app_yellow"
-                                app:thumbRadius="20dp"
-                                app:thumbStrokeColor="@color/background_dreieck"
-                                app:thumbStrokeWidth="4dp"
-                                app:tickColorActive="@color/app_yellow"
-                                app:tickColorInactive="@color/halo_color"
-                                app:trackColorActive="@color/app_yellow"
-                                app:trackColorInactive="@color/halo_color"
-                                app:trackHeight="20dp" />
-                        </LinearLayout>
-                    </LinearLayout>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:gravity="right">
+
+                    <TextView
+                        android:id="@+id/fragment_text_whirlpool"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="left"
+                        android:paddingRight="20dp"
+                        android:text="Whirlpool"
+                        android:textColor="@color/welcome_textcolor"
+                        android:textSize="30sp" />
+
+                </LinearLayout>
+
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="30dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/color_whirlpool_blumen"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingTop="15dp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/blumen_onoff"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="50dp"
+                                            android:src="@drawable/onoff"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/blumen_changeScene"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:src="@drawable/plus"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:id="@+id/text_whirlpool_mauer"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Lampe mur"
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/lampe_mauer"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/lampe_aus"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <TextView
+                                            android:id="@+id/akt_szene_mauer"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/kanitfont"
+                                            android:letterSpacing="0.08"
+                                            android:paddingTop="120dp"
+                                            android:text="Aus"
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+
+                                    </RelativeLayout>
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/color_whirlpool_boden_massif"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingTop="15dp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/boden_onoff"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="50dp"
+                                            android:src="@drawable/onoff"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/boden_changeScene"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:src="@drawable/plus"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:id="@+id/text_whirlpool_boden"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Lampe sol"
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/lampe_boden"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/lampe_aus"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <TextView
+                                            android:id="@+id/akt_szene_boden"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/kanitfont"
+                                            android:letterSpacing="0.08"
+                                            android:paddingTop="120dp"
+                                            android:text="Aus"
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+
+                                    </RelativeLayout>
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginEnd="20dp"
-            tools:ignore="RtlHardcoded"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="right">
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingStart="30dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/smart"
-                    android:textColor="@color/welcome_textcolor"
-                    android:fontFamily="@font/poppinsblack"
-                    android:textSize="32sp" />
+                    android:layout_marginBottom="20dp"
+                    android:gravity="left">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home"
-                    android:fontFamily="@font/poppins"
-                    android:textSize="32sp"
-                    android:textColor="@color/welcome_textcolor" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp">
-                <ImageButton
-                    android:id="@+id/szene_whirlpool_hell"
-                    android:layout_width="50dp"
-                    android:layout_height="46dp"
-                    android:layout_marginLeft="20dp"
-                    android:tag="hell"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/szene_hell"
-                    />
-                <ImageButton
-                    android:id="@+id/szene_whirlpool_weiss"
-                    android:layout_width="50dp"
-                    android:layout_height="46dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:tag="weiss"
-                    android:background="@drawable/szene_weiss"
-                    />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/btn_back"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pfeil_back"
+                        app:civ_border_color="#31383e"
+                        app:civ_border_width="8dp"
+                        app:civ_circle_background_color="#31383e" />
 
-                <ImageButton
-                    android:id="@+id/szene_whirlpool_energie"
-                    android:layout_width="50dp"
-                    android:layout_height="46dp"
-                    android:layout_marginLeft="10dp"
-                    android:tag="energie"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/szene_energie"
-                    />
-                <ImageButton
-                    android:id="@+id/szene_whirlpool_sonnenuntergang"
-                    android:layout_width="50dp"
-                    android:layout_height="46dp"
-                    android:tag="sonne"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/szene_sonnenuntergang"
-                    />
-                <ImageButton
-                    android:id="@+id/szene_whirlpool_tropen"
-                    android:layout_width="50dp"
-                    android:layout_height="46dp"
-                    android:layout_marginLeft="10dp"
-                    android:tag="tropen"
-                    android:layout_marginRight="30dp"
-                    android:background="@drawable/szene_tropen"
-                    />
-            </LinearLayout>
+                </TableRow>
 
+            </TableLayout>
 
         </LinearLayout>
     </FrameLayout>

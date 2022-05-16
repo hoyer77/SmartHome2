@@ -4,319 +4,566 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Welcome">
+    tools:context=".Welcome"
+    tools:ignore="MissingDefaultResource">
 
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_app">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingStart="10dp"
-    >
+        android:background="@color/black">
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/smart"
-                android:textColor="@color/welcome_textcolor"
-                android:fontFamily="@font/poppinsblack"
-                android:textSize="32sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/home"
-                android:fontFamily="@font/poppins"
-                android:textSize="32sp"
-                android:textColor="@color/welcome_textcolor" />
-        </LinearLayout>
-        <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="20dp"
->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="40dp"
-            >
-
-            <ImageButton
-                android:id="@+id/btn_terrasse"
-                android:layout_width="160dp"
-                android:layout_height="110dp"
-
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_terrasse"
-                android:paddingTop="35dp"
-                android:paddingLeft="50dp"
-                android:paddingRight="50dp"
-                android:paddingBottom="35dp"
-                android:background="@drawable/imagebutton"
-                />
-            <ImageButton
-                android:id="@+id/btn_whirlpool"
-                android:layout_width="160dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="50dp"
-
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_whirlpool"
-                android:paddingTop="35dp"
-                android:paddingLeft="50dp"
-                android:paddingRight="50dp"
-                android:paddingBottom="35dp"
-                android:background="@drawable/imagebutton"
-                />
-        </LinearLayout>
-        <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="40dp"
-        android:layout_marginStart="10dp"
-            android:layout_gravity="left"
-        >
-
-        <ImageButton
-            android:id="@+id/btn_pool"
-            android:layout_width="160dp"
-            android:layout_height="110dp"
-
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_pool"
-            android:paddingTop="35dp"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
-            android:paddingBottom="35dp"
-            android:background="@drawable/imagebutton"
-            />
-        <ImageButton
-            android:id="@+id/btn_camera"
-            android:layout_width="160dp"
-            android:layout_height="110dp"
-            android:layout_marginStart="50dp"
-
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_kamera"
-            android:paddingTop="35dp"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
-            android:paddingBottom="35dp"
-            android:background="@drawable/imagebutton"
-            />
-    </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_gravity="left"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="60dp">
+                android:paddingStart="30dp">
+
                 <LinearLayout
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-                    <ImageView
-                        android:id="@+id/sonne"
-                        android:layout_width="66dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/sonne"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="10dp"
-                        android:contentDescription="@string/bild_stromproduktion" />
+                    android:layout_marginTop="30dp">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    <ProgressBar
-                        android:id="@+id/production_progress_bar"
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:indeterminate="true"
-                        android:indeterminateTint="@color/progress_bar"
-                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsblack"
+                        android:text="@string/smart"
+                        android:textColor="@color/welcome_textcolor"
+                        android:textSize="32sp" />
 
-                        <TextView
-                            android:id="@+id/production_wh"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/welcome_textcolor"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <ImageView
-                        android:id="@+id/outdoor_temp"
-                        android:layout_width="66dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/icon_aussen_temp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="20dp"
-                        android:contentDescription="@string/bild_temp_outdoor" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <ProgressBar
-                            android:id="@+id/outdoor_temp_progress_bar"
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:indeterminate="true"
-                            android:indeterminateTint="@color/progress_bar"
-                            />
-
-                        <TextView
-                            android:id="@+id/outdoor_temp_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/welcome_textcolor"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/home"
+                        android:textColor="@color/welcome_textcolor"
+                        android:textSize="32sp" />
 
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="120dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-                    <ImageView
-                        android:id="@+id/electric"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_consumation"
-                        android:layout_marginBottom="20dp"
-                        android:contentDescription="@string/bild_stromverbrauch" />
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <ProgressBar
-                            android:id="@+id/consumption_progress_bar"
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:indeterminate="true"
-                            android:indeterminateTint="@color/progress_bar"
-                            />
+                    android:layout_marginTop="30dp"
+                    android:gravity="right">
 
-                        <TextView
-                            android:id="@+id/consumation_wh"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins"
-                            android:gravity="center"
-                            android:minWidth="200dp"
-                            android:text=""
-                            android:textColor="@color/welcome_textcolor"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-                    <ImageView
-                        android:id="@+id/pool_temp"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/icon_pool_temp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="20dp"
-                        android:contentDescription="@string/bild_temp_pool" />
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <ProgressBar
-                            android:id="@+id/pool_temp_progress_bar"
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:indeterminate="true"
-                            android:indeterminateTint="@color/progress_bar"
-                            />
-
-                        <TextView
-                            android:id="@+id/pool_temp_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins"
-                            android:gravity="center"
-                            android:minWidth="200dp"
-                            android:text=""
-                            android:textColor="@color/welcome_textcolor"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-                    <ImageView
-                        android:id="@+id/auto"
-                        android:layout_width="48dp"
-                        android:layout_height="45dp"
-                        android:src="@drawable/auto"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="20dp"
-                        android:contentDescription="@string/bild_autoverbrauch" />
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <ProgressBar
-                            android:id="@+id/car_progress_bar"
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:indeterminate="true"
-                            android:indeterminateTint="@color/progress_bar"
-                            />
-
-                        <TextView
-                            android:id="@+id/auto_wh"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/welcome_textcolor"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/fragment_text_terrasse"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/poppins"
+                        android:paddingRight="20dp"
+                        android:text="03.12.2021 14h34"
+                        android:textColor="@color/welcome_textcolor"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
+
             </LinearLayout>
-</LinearLayout>
-</LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="30dp"
-            android:layout_marginBottom="20dp"
-            >
 
-            <TextView
-                android:id="@+id/uhrzeit"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="03.12.2021 14h34"
-                android:fontFamily="@font/poppins"
-                android:textSize="16sp"
-                android:textColor="@color/welcome_textcolor"
-                />
+                android:orientation="horizontal"
+                android:paddingStart="10dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <TextView
+                                        android:id="@+id/text_production_solaire"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Production solaire"
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/lampe"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/sonne"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <ProgressBar
+                                            android:id="@+id/solar_progress_bar"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:indeterminate="true"
+                                            android:indeterminateTint="@color/white"
+                                            android:paddingTop="110dp" />
+
+                                        <TextView
+                                            android:id="@+id/akt_szene_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/kanitfont"
+                                            android:letterSpacing="0.08"
+                                            android:paddingTop="110dp"
+                                            android:text=""
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+                                    </RelativeLayout>
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <TextView
+                                        android:id="@+id/text_pergola_store"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Consommation"
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/icon_pergola_store"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/consumation"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <ProgressBar
+                                            android:id="@+id/consumption_progress_bar"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:indeterminate="true"
+                                            android:indeterminateTint="@color/white"
+                                            android:paddingTop="110dp" />
+
+                                        <TextView
+                                            android:id="@+id/gesamtverbrauch"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/kanitfont"
+                                            android:letterSpacing="0.08"
+                                            android:paddingTop="110dp"
+                                            android:text=""
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+                                    </RelativeLayout>
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_marginTop="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <TextView
+                                        android:id="@+id/text_autoverbrauch"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Voiture"
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/pergola_dach"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/autoverbrauch"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <ProgressBar
+                                            android:id="@+id/car_progress_bar"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:indeterminate="true"
+                                            android:indeterminateTint="@color/white"
+                                            android:paddingTop="110dp" />
+
+                                        <TextView
+                                            android:id="@+id/autoverbrauch"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/kanitfont"
+                                            android:letterSpacing="0.08"
+                                            android:paddingTop="110dp"
+                                            android:text=""
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+                                    </RelativeLayout>
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <TextView
+                                        android:id="@+id/text_outdoor_temp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Outdoor temp."
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp"
+                                        tools:ignore="DuplicateIds" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_alignParentStart="true"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/outdoor_temp"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/icon_aussen_temp"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <ProgressBar
+                                            android:id="@+id/outdoor_temp_progress_bar"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:indeterminate="true"
+                                            android:indeterminateTint="@color/white"
+                                            android:paddingTop="110dp" />
+
+                                        <TextView
+                                            android:id="@+id/outdoor_temp_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/kanitfont"
+                                            android:letterSpacing="0.08"
+                                            android:paddingTop="110dp"
+                                            android:text=""
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+                                    </RelativeLayout>
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <TextView
+                                        android:id="@+id/text_pool_temp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Pool temp."
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/pool_temp"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/icon_pool_temp"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <ProgressBar
+                                            android:id="@+id/pool_temp_progress_bar"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:indeterminate="true"
+                                            android:indeterminateTint="@color/white"
+                                            android:paddingTop="110dp" />
+
+                                        <TextView
+                                            android:id="@+id/pool_temp_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/kanitfont"
+                                            android:letterSpacing="0.08"
+                                            android:paddingTop="110dp"
+                                            android:text=""
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+                                    </RelativeLayout>
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingStart="10dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/btn_terrasse"
+                        android:layout_width="70dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/ic_terrasse" />
+
+                    <ImageView
+                        android:id="@+id/btn_whirlpool"
+                        android:layout_width="70dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="40dp"
+                        android:src="@drawable/ic_whirlpool" />
+
+                    <ImageView
+                        android:id="@+id/btn_pool"
+                        android:layout_width="70dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="40dp"
+                        android:src="@drawable/ic_pool" />
+
+                    <ImageView
+                        android:id="@+id/btn_camera"
+                        android:layout_width="70dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="40dp"
+                        android:src="@drawable/ic_kamera" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
     </FrameLayout>
 
 </FrameLayout>

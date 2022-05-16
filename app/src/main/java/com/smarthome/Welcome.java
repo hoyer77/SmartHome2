@@ -13,7 +13,7 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -86,20 +86,21 @@ public class Welcome extends Fragment {
 
         context = view.getContext();
 
-        solarProduction = view.findViewById(R.id.production_wh);
-        aktConsumption = view.findViewById(R.id.consumation_wh);
-        aktCar = view.findViewById(R.id.auto_wh);
+        solarProduction = view.findViewById(R.id.akt_szene_text);
+        aktConsumption = view.findViewById(R.id.gesamtverbrauch);
+        aktCar = view.findViewById(R.id.autoverbrauch);
         pool_temp = view.findViewById(R.id.pool_temp_text);
         outdoor_temp = view.findViewById(R.id.outdoor_temp_text);
-        progress_solar = view.findViewById(R.id.production_progress_bar);
+        progress_solar = view.findViewById(R.id.solar_progress_bar);
         progress_consumption = view.findViewById(R.id.consumption_progress_bar);
         progress_auto = view.findViewById(R.id.car_progress_bar);
         progress_outdoor_temp = view.findViewById(R.id.outdoor_temp_progress_bar);
         progress_pool_temp = view.findViewById(R.id.pool_temp_progress_bar);
 
-        uhrzeit = view.findViewById((R.id.uhrzeit));
+        uhrzeit = view.findViewById((R.id.fragment_text_terrasse));
 
-        ImageButton btn_terrasse = view.findViewById(R.id.btn_terrasse);
+
+        ImageView btn_terrasse = view.findViewById(R.id.btn_terrasse);
         btn_terrasse.setOnClickListener(view1 -> {
             if (getActivity() != null) {
                 FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
@@ -107,7 +108,7 @@ public class Welcome extends Fragment {
             }
         });
 
-        ImageButton btn_whirlpool = view.findViewById(R.id.btn_whirlpool);
+        ImageView btn_whirlpool = view.findViewById(R.id.btn_whirlpool);
         btn_whirlpool.setOnClickListener(view12 -> {
             if (getActivity() != null) {
                 FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
@@ -115,7 +116,7 @@ public class Welcome extends Fragment {
             }
         });
 
-        ImageButton btn_pool = view.findViewById(R.id.btn_pool);
+        ImageView btn_pool = view.findViewById(R.id.btn_pool);
         btn_pool.setOnClickListener(view13 -> {
             if (getActivity() != null) {
                 FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
@@ -123,7 +124,7 @@ public class Welcome extends Fragment {
             }
         });
 
-        ImageButton btn_cam = view.findViewById(R.id.btn_camera);
+        ImageView btn_cam = view.findViewById(R.id.btn_camera);
         btn_cam.setOnClickListener(view14 -> {
             if (getActivity() != null) {
                 FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
@@ -326,12 +327,22 @@ public class Welcome extends Fragment {
             public void onResponse(JSONArray aktTemp) {
                 try {
                    String hardware = aktTemp.getJSONObject(0).getString("hwID");
+                   poolTemp = "";
+                   outdoorTemp = "";
                     if (hardware.equals("28e8d776e0013c26")) {
-                        outdoorTemp = String.valueOf(aktTemp.getJSONObject(0).getDouble("tC"));
-                        poolTemp = String.valueOf(aktTemp.getJSONObject(1).getDouble("tC"));
+                        if (aktTemp.length() > 0) {
+                            outdoorTemp = String.valueOf(aktTemp.getJSONObject(0).getDouble("tC"));
+                        }
+                        if (aktTemp.length() > 1) {
+                            poolTemp = String.valueOf(aktTemp.getJSONObject(1).getDouble("tC"));
+                        }
                     } else {
-                        outdoorTemp = String.valueOf(aktTemp.getJSONObject(1).getDouble("tC"));
-                        poolTemp = String.valueOf(aktTemp.getJSONObject(0).getDouble("tC"));
+                        if (aktTemp.length() > 0) {
+                            outdoorTemp = String.valueOf(aktTemp.getJSONObject(1).getDouble("tC"));
+                        }
+                        if (aktTemp.length() > 1) {
+                            poolTemp = String.valueOf(aktTemp.getJSONObject(0).getDouble("tC"));
+                        }
                     }
                     changeTextOutdoorTemp(outdoorTemp);
                     changeTextPoolTemp(poolTemp);

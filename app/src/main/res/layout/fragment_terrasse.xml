@@ -9,271 +9,457 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_app">
+        android:background="@color/black">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp">
-            <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/btn_back"
-                    android:layout_width="38dp"
-                    android:layout_height="40dp"
-
-                    android:background="@null"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_back" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_gravity="right"
-                    android:layout_marginLeft="100dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/smart"
-                        android:textColor="@color/welcome_textcolor"
-                        android:fontFamily="@font/poppinsblack"
-                        android:textSize="32sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/home"
-                        android:fontFamily="@font/poppins"
-                        android:textSize="32sp"
-                        android:textColor="@color/welcome_textcolor" />
-                </LinearLayout>
-        </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginTop="0dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="@string/terrasse"
-                        android:textColor="@color/welcome_textcolor"
-                        android:textSize="32sp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="left"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:src="@drawable/ic_licht" />
-
-                            <androidx.appcompat.widget.SwitchCompat
-                                android:id="@+id/switch_terrasse"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="40dp"
-                                android:thumb="@drawable/thumb1"
-                                app:track="@drawable/track" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp">
-
-                            <com.google.android.material.slider.Slider
-                                android:id="@+id/slider_terrasse"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:stepSize="1"
-                                android:valueFrom="0"
-                                android:valueTo="100"
-                                app:haloColor="@color/halo_color"
-                                app:labelBehavior="floating"
-                                app:thumbColor="@color/app_yellow"
-                                app:thumbRadius="20dp"
-                                app:thumbStrokeColor="@color/background_dreieck"
-                                app:thumbStrokeWidth="4dp"
-                                app:tickColorActive="@color/app_yellow"
-                                app:tickColorInactive="@color/halo_color"
-                                app:trackColorActive="@color/app_yellow"
-                                app:trackColorInactive="@color/halo_color"
-                                app:trackHeight="20dp" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginEnd="20dp"
-            tools:ignore="RtlHardcoded"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="30dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp">
 
-                    <ImageButton
-                        android:id="@+id/szene_terrasse_hell"
-                        android:layout_width="50dp"
-                        android:layout_height="46dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/szene_hell"
-                        android:tag="hell" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsblack"
+                        android:text="@string/smart"
+                        android:textColor="@color/welcome_textcolor"
+                        android:textSize="32sp" />
 
-                    <ImageButton
-                        android:id="@+id/szene_terrasse_weiss"
-                        android:layout_width="50dp"
-                        android:layout_height="46dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/szene_weiss"
-                        android:tag="weiss" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/home"
+                        android:textColor="@color/welcome_textcolor"
+                        android:textSize="32sp" />
 
-                    <ImageButton
-                        android:id="@+id/szene_terrasse_energie"
-                        android:layout_width="50dp"
-                        android:layout_height="46dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="20dp"
-                        android:background="@drawable/szene_energie"
-                        android:tag="energie" />
-                </LinearLayout>
-
-
-        </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginEnd="20dp"
-                tools:ignore="RtlHardcoded"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="60dp">
-
-                    <ImageButton
-                        android:id="@+id/pergola_dach_zu"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="30dp"
-                        android:background="@drawable/pfeil_left"
-                        android:tag="energie"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <ImageButton
-                        android:id="@+id/pergola_dach_stop"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="30dp"
-                        android:background="@drawable/pause"
-                        android:tag="energie"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <ImageButton
-                        android:id="@+id/pergola_dach_offen"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="20dp"
-                        android:background="@drawable/pfeil_right"
-                        android:tag="energie"
-                        tools:ignore="TouchTargetSizeCheck" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:gravity="right">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/fragment_text_terrasse"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="right"
+                        android:paddingRight="20dp"
+                        android:text="Terrasse"
+                        android:textColor="@color/welcome_textcolor"
+                        android:textSize="30sp" />
 
-                        <ImageView
-                            android:layout_width="180dp"
-                            android:layout_height="70dp"
-                            android:layout_marginTop="40dp"
-                            android:src="@drawable/pergola_1" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/storen_up"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="30dp"
-                            android:background="@drawable/pfeil_up"
-                            android:tag="up" />
-
-                        <ImageButton
-                            android:id="@+id/storen_stop"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginLeft="22dp"
-                            android:layout_marginTop="40dp"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/pause"
-                            android:tag="stop" />
-
-                        <ImageButton
-                            android:id="@+id/storen_down"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="40dp"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/pfeil_down"
-                            android:tag="down" />
-
-                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="30dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_marginTop="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/color_terrasse"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingTop="15dp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/onoff"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="50dp"
+                                            android:src="@drawable/onoff"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/changeScene"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:src="@drawable/plus"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:id="@+id/text_pergola_lampe"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Lampe Pergola"
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/lampe"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/lampe_aus"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <TextView
+                                            android:id="@+id/akt_szene_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/kanitfont"
+                                            android:letterSpacing="0.08"
+                                            android:paddingTop="120dp"
+                                            android:text="Aus"
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+
+                                    </RelativeLayout>
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/storen_up"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:src="@drawable/arrow_up"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/storen_pause"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="50dp"
+                                            android:src="@drawable/pause"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/storen_down"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="100dp"
+                                            android:src="@drawable/arrow_down"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:id="@+id/text_pergola_store"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Pergola store"
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/icon_pergola_store"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/pergola_storen"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/dach_open"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:src="@drawable/arrow_up"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/dach_pause"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="50dp"
+                                            android:src="@drawable/pause"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/dach_down"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="100dp"
+                                            android:src="@drawable/arrow_down"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:id="@+id/text_autoverbrauch"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Pergola toit"
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/pergola_dach"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/pergola_dach"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingStart="30dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="left">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/btn_back"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pfeil_back"
+                        app:civ_border_color="#31383e"
+                        app:civ_border_width="8dp"
+                        app:civ_circle_background_color="#31383e" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
     </FrameLayout>
 
 </FrameLayout>

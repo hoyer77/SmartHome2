@@ -15,4 +15,15 @@
     <string name="blumen">Blumen</string>
     <string name="pool">Pool</string>
     <string name="poolwand">Poolwand</string>
+    <string name="confirm">confirm</string>
+    <string name="cancel">cancel</string>
+    <string-array name="programming_languages">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
 </resources>
