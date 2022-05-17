@@ -1,8 +1,7 @@
 package com.smarthome;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.slider.Slider;
-import com.skydoves.colorpickerview.ColorEnvelope;
 import com.skydoves.colorpickerview.ColorPickerDialog;
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 import com.smarthome.requester.HueRequester;
-
-import org.json.JSONArray;
-import org.json.JSONException;
 
 import java.util.ArrayList;
 
@@ -48,71 +43,30 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.colorPicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Context context = view.getContext();
+        holder.colorPicker.setOnClickListener(view -> {
+            final Context context = view.getContext();
 
-                new ColorPickerDialog.Builder(context)
-                        .setTitle("ColorPicker Dialog")
-                        .setPreferenceName("MyColorPickerDialog")
-                        .setPositiveButton(context.getString(R.string.confirm),
-                                new ColorEnvelopeListener() {
-                                    @Override
-                                    public void onColorSelected(ColorEnvelope envelope, boolean fromUser) {
-                                        int[] argb = envelope.getArgb();
-                                        double[] xy = getRGBtoXY(argb[1], argb[2], argb[3]);
-                                        MyViewHolder colorHolder = holder;
-                                        Integer lichid = colorHolder.slider.getId();
-                                        String lichtnummer = String.valueOf(lichid);
-                                        new HueRequester(context).hueRequesterSliderChangeLightColor(new HueRequester.VolleyResponseListenerHue() {
-                                            @Override
-                                            public void onError(String message) {
-                                                System.out.println("Wechseln der Textanzeige-prozent");
-                                            }
+            new ColorPickerDialog.Builder(context)
+                    .setTitle("ColorPicker Dialog")
+                    .setPreferenceName("MyColorPickerDialog")
+                    .setPositiveButton(context.getString(R.string.confirm),
+                            (ColorEnvelopeListener) (envelope, fromUser) -> {
+                                int[] argb = envelope.getArgb();
+                                double[] xy = getRGBtoXY(argb[1], argb[2], argb[3]);
+                                Integer lichid = holder.slider.getId();
+                                String lichtnummer = String.valueOf(lichid);
+                                new HueRequester(context).hueRequesterSliderChangeLightColor(lichtnummer, xy );
+                            })
+                    .setNegativeButton(context.getString(R.string.cancel),
+                            (dialogInterface, i) -> dialogInterface.dismiss())
+                    .attachAlphaSlideBar(true) // the default value is true.
+                    .attachBrightnessSlideBar(true)  // the default value is true.
+                    .setBottomSpace(12) // set a bottom space between the last slidebar and buttons.
+                    .show();
 
-                                            @Override
-                                            public void onResponse(String hueState) {
-                                                System.out.println("Wechseln der Textanzeige-prozent");
-                                            }
-
-                                            @Override
-                                            public void onResponse(Integer hueState) {
-                                                System.out.println("Wechseln der Textanzeige-prozent");
-                                            }
-
-                                            @Override
-                                            public void onResponse(Boolean hueState) {
-                                                System.out.println("Wechseln der Textanzeige-prozent");
-                                            }
-
-                                            @Override
-                                            public void onResponse(float sliderStatus) {
-
-                                            }
-
-                                            @Override
-                                            public void onResponse(JSONArray lightxy) throws JSONException {
-
-                                            }
-                                        }, lichtnummer, xy );
-                                    }
-                                })
-                        .setNegativeButton(context.getString(R.string.cancel),
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                    }
-                                })
-                        .attachAlphaSlideBar(true) // the default value is true.
-                        .attachBrightnessSlideBar(true)  // the default value is true.
-                        .setBottomSpace(12) // set a bottom space between the last slidebar and buttons.
-                        .show();
-
-            }
         });
 
         holder.lampe.setText("Lampe " + bezeichnung.get(position).toUpperCase());
@@ -121,49 +75,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.prozent.setTag("prozent_"+id.get((position)));
         holder.slider.setValue(proz);
         holder.slider.setId(Integer.parseInt(id.get(position)));
-        holder.slider.addOnChangeListener(new Slider.OnChangeListener() {
-            @Override
-            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
-                float lightValue = value;
-                lightValue = (float) (lightValue*2.54);
-                Integer newValue = (int) lightValue;
-                Integer lichid = slider.getId();
-                String lichtnummer = String.valueOf(lichid);
-                new HueRequester(context).hueRequesterSliderChangeLight(new HueRequester.VolleyResponseListenerHue() {
-                    @Override
-                    public void onError(String message) {
-                        System.out.println("Wechseln der Textanzeige-prozent");
-                    }
-
-                    @Override
-                    public void onResponse(String hueState) {
-                        System.out.println("Wechseln der Textanzeige-prozent");
-                    }
-
-                    @Override
-                    public void onResponse(Integer hueState) {
-                        System.out.println("Wechseln der Textanzeige-prozent");
-                    }
-
-                    @Override
-                    public void onResponse(Boolean hueState) {
-                        System.out.println("Wechseln der Textanzeige-prozent");
-                    }
-
-                    @Override
-                    public void onResponse(float sliderStatus) {
-
-                    }
-
-                    @Override
-                    public void onResponse(JSONArray lightxy) throws JSONException {
-
-                    }
-                }, lichtnummer, newValue );
-                MyViewHolder sliderHolder = holder;
-                Integer proz = (int)value;
-                sliderHolder.prozent.setText(proz+" %");
-            }
+        holder.slider.addOnChangeListener((slider, value, fromUser) -> {
+            float lightValue = value;
+            lightValue = (float) (lightValue*2.54);
+            Integer newValue = (int) lightValue;
+            Integer lichid = slider.getId();
+            String lichtnummer = String.valueOf(lichid);
+            new HueRequester(context).hueRequesterSliderChangeLight(lichtnummer, newValue );
+            Integer proz1 = (int)value;
+            holder.prozent.setText(proz1 +" %");
         });
     }
 
@@ -172,7 +92,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return bezeichnung.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView lampe;
         TextView prozent;

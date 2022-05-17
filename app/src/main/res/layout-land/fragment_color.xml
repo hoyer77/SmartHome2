@@ -9,7 +9,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black">
+        android:background="@color/black"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,7 +21,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="30dp">
+                android:paddingStart="30dp"
+                tools:ignore="RtlSymmetry">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -49,7 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="30dp"
-                    android:gravity="right">
+                    android:gravity="right"
+                    tools:ignore="RtlHardcoded">
 
                     <TextView
                         android:id="@+id/fragment_text_color"
@@ -58,7 +61,7 @@
                         android:fontFamily="@font/poppins"
                         android:gravity="left"
                         android:paddingRight="20dp"
-                        android:text="Color"
+                        android:text="@string/color"
                         android:textColor="@color/welcome_textcolor"
                         android:textSize="30sp" />
 
@@ -80,7 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:orientation="horizontal"
-            android:paddingStart="30dp">
+            android:paddingStart="30dp"
+            tools:ignore="RtlSymmetry">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -90,7 +94,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:gravity="left">
+                    android:gravity="left"
+                    tools:ignore="RtlHardcoded">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/btn_back"

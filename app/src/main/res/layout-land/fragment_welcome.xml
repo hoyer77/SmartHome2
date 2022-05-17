@@ -11,7 +11,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black">
+        android:background="@color/black"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +23,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="30dp">
+                android:paddingStart="30dp"
+                tools:ignore="RtlSymmetry">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -50,14 +52,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:gravity="right">
+                    android:gravity="right"
+                    tools:ignore="RtlHardcoded">
 
                     <TextView
                         android:id="@+id/fragment_text_terrasse"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins"
-                        android:text="03.12.2021 14h34"
+                        android:text="@string/_03_12_2021_14h34"
                         android:textColor="@color/welcome_textcolor"
                         android:textSize="16sp"
                         android:paddingRight="20dp"
@@ -70,7 +73,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="30dp">
+                android:paddingStart="30dp"
+                tools:ignore="RtlSymmetry">
 
                 <TableLayout
                     android:layout_width="match_parent"
@@ -84,7 +88,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="180dp"
                             android:layout_height="180dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -101,7 +105,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <TextView
@@ -111,9 +115,10 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Production solaire"
+                                        android:text="@string/production_solaire"
                                         android:textColor="#95a5b5"
-                                        android:textSize="13sp" />
+                                        android:textSize="13sp"
+                                        tools:ignore="TooDeepLayout" />
 
                                     <RelativeLayout
                                         android:layout_width="match_parent"
@@ -166,7 +171,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="180dp"
                             android:layout_height="180dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -183,7 +188,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <TextView
@@ -193,7 +198,7 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Consommation"
+                                        android:text="@string/consommation"
                                         android:textColor="#95a5b5"
                                         android:textSize="13sp" />
 
@@ -248,7 +253,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="180dp"
                             android:layout_height="180dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -265,7 +270,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                 <!-- Add your UI elements -->
                                 <TextView
@@ -275,7 +280,7 @@
                                     android:fontFamily="@font/kanitfont"
                                     android:letterSpacing="0.08"
                                     android:paddingTop="100dp"
-                                    android:text="Voiture"
+                                    android:text="@string/voiture"
                                     android:textColor="#95a5b5"
                                     android:textSize="13sp" />
 
@@ -337,7 +342,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="180dp"
                             android:layout_height="180dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -354,7 +359,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <TextView
@@ -364,7 +369,7 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Outdoor temp."
+                                        android:text="@string/outdoor_temp"
                                         android:textColor="#95a5b5"
                                         android:textSize="13sp"
                                         tools:ignore="DuplicateIds" />
@@ -419,7 +424,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="180dp"
                             android:layout_height="180dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -436,7 +441,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <TextView
@@ -446,7 +451,7 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Pool temp."
+                                        android:text="@string/pool_temp"
                                         android:textColor="#95a5b5"
                                         android:textSize="13sp" />
 
@@ -510,7 +515,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:orientation="horizontal"
-            android:paddingStart="30dp">
+            android:paddingStart="30dp"
+            tools:ignore="RtlSymmetry">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -526,28 +532,32 @@
                         android:id="@+id/btn_terrasse"
                         android:layout_width="70dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/ic_terrasse" />
+                        android:src="@drawable/ic_terrasse"
+                        android:contentDescription="@string/button_terrasse" />
 
                     <ImageView
                         android:id="@+id/btn_whirlpool"
                         android:layout_width="70dp"
                         android:layout_height="45dp"
-                        android:layout_marginLeft="40dp"
-                        android:src="@drawable/ic_whirlpool" />
+                        android:layout_marginStart="40dp"
+                        android:src="@drawable/ic_whirlpool"
+                        android:contentDescription="@string/button_whirlpool" />
 
                     <ImageView
                         android:id="@+id/btn_pool"
                         android:layout_width="70dp"
                         android:layout_height="45dp"
-                        android:layout_marginLeft="40dp"
-                        android:src="@drawable/ic_pool" />
+                        android:layout_marginStart="40dp"
+                        android:src="@drawable/ic_pool"
+                        android:contentDescription="@string/button_pool" />
 
                     <ImageView
                         android:id="@+id/btn_camera"
                         android:layout_width="70dp"
                         android:layout_height="45dp"
-                        android:layout_marginLeft="40dp"
-                        android:src="@drawable/ic_kamera" />
+                        android:layout_marginStart="40dp"
+                        android:src="@drawable/ic_kamera"
+                        android:contentDescription="@string/button_camera" />
 
                 </TableRow>
 

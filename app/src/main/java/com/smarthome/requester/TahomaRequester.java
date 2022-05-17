@@ -1,38 +1,23 @@
 package com.smarthome.requester;
 
-import static java.lang.Math.round;
-
 import android.content.Context;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
-import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.smarthome.HttpsTrustManager;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class TahomaRequester {
 
-    private static final String AUTHORIZATION_URL = "https://ha101-1.overkiz.com";
-    private static final String TAHOMA_PIN = "2013-4957-8385";
-    private static final String TAHOMA_MAIL = "stefan@goetschmann.ch";
-    private static final String TAHOMA_PWD = "Stefan77_";
     Context appContext;
 
     public TahomaRequester(Context appContext) {
@@ -59,23 +44,13 @@ public class TahomaRequester {
         JSONObject jsonObject = new JSONObject(json) ;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject,
-                new Response.Listener<JSONObject>(){
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        System.out.println("Response"+
-                                response.toString());
-                    }
-                },
-                new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        System.out.println(error);
-                    }
-                })
+                response -> System.out.println("Response"+
+                        response.toString()),
+                System.out::println)
         {
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 HashMap<String, String> headers = new HashMap<>();
                 headers.put("Content-Type", "application/json");
                 headers.put("Authorization", "Bearer "+token);
@@ -108,23 +83,13 @@ public class TahomaRequester {
         JSONObject jsonObject = new JSONObject(json) ;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject,
-                new Response.Listener<JSONObject>(){
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        System.out.println("Response"+
-                                response.toString());
-                    }
-                },
-                new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        System.out.println(error);
-                    }
-                })
+                response -> System.out.println("Response"+
+                        response.toString()),
+                System.out::println)
         {
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 HashMap<String, String> headers = new HashMap<>();
                 headers.put("Content-Type", "application/json");
                 headers.put("Authorization", "Bearer "+token);

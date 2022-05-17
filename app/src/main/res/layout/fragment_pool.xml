@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Pool">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black">
+        android:background="@color/black"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,7 +21,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="30dp">
+                android:paddingStart="30dp"
+                tools:ignore="RtlSymmetry">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -49,7 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="30dp"
-                    android:gravity="right">
+                    android:gravity="right"
+                    tools:ignore="RtlHardcoded">
 
                     <TextView
                         android:id="@+id/fragment_text_pool"
@@ -59,7 +62,7 @@
                         android:fontFamily="@font/poppins"
                         android:gravity="right"
                         android:paddingRight="20dp"
-                        android:text="Pool"
+                        android:text="@string/pool"
                         android:textColor="@color/welcome_textcolor"
                         android:textSize="30sp" />
 
@@ -71,7 +74,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="10dp">
+                android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry">
 
                 <TableLayout
                     android:layout_width="match_parent"
@@ -85,7 +89,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="170dp"
                             android:layout_height="170dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -108,14 +112,15 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <RelativeLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded,TooDeepLayout">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/pool_massif_onoff"
@@ -133,7 +138,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/pool_massif_changeScene"
@@ -153,7 +159,7 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Lampe massif"
+                                        android:text="@string/lampe_massif"
                                         android:textColor="#95a5b5"
                                         android:textSize="13sp" />
 
@@ -184,7 +190,7 @@
                                             android:fontFamily="@font/kanitfont"
                                             android:letterSpacing="0.08"
                                             android:paddingTop="120dp"
-                                            android:text="Aus"
+                                            android:text="@string/aus"
                                             android:textColor="#FFFFFF"
                                             android:textSize="18sp"
                                             android:textStyle="bold" />
@@ -225,14 +231,15 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <RelativeLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/pool_mauer_onoff"
@@ -250,7 +257,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/pool_mauer_changeScene"
@@ -270,7 +278,7 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Lampe mur"
+                                        android:text="@string/lampe_mur"
                                         android:textColor="#95a5b5"
                                         android:textSize="13sp" />
 
@@ -301,7 +309,7 @@
                                             android:fontFamily="@font/kanitfont"
                                             android:letterSpacing="0.08"
                                             android:paddingTop="120dp"
-                                            android:text="Aus"
+                                            android:text="@string/aus"
                                             android:textColor="#FFFFFF"
                                             android:textSize="18sp"
                                             android:textStyle="bold" />
@@ -325,7 +333,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="170dp"
                             android:layout_height="170dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -342,14 +350,15 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <RelativeLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/pool_up"
@@ -366,7 +375,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/pool_pause"
@@ -384,7 +394,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/pool_down"
@@ -405,7 +416,7 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Pool couverture"
+                                        android:text="@string/pool_couverture"
                                         android:textColor="#95a5b5"
                                         android:textSize="13sp" />
 
@@ -452,14 +463,15 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <RelativeLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/pool_lampe_onoff"
@@ -480,7 +492,7 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Lampe piscine"
+                                        android:text="@string/lampe_piscine"
                                         android:textColor="#95a5b5"
                                         android:textSize="13sp" />
 
@@ -520,7 +532,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:orientation="horizontal"
-            android:paddingStart="30dp">
+            android:paddingStart="30dp"
+            tools:ignore="RtlSymmetry">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -530,7 +543,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:gravity="left">
+                    android:gravity="left"
+                    tools:ignore="RtlHardcoded">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/btn_back"

@@ -37,29 +37,26 @@ public class Color extends Fragment {
         View view = inflater.inflate(R.layout.fragment_color,container,false);
 
         // Backway
-        List<Fragment> allFragments = getActivity().getSupportFragmentManager().getFragments();
+        List<Fragment> allFragments = requireActivity().getSupportFragmentManager().getFragments();
         fragmentNumber = allFragments.get(0).getTag();
 
         back = view.findViewById(R.id.btn_back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
-                switch(fragmentNumber)
-                {
-                    case "1": fr.replace(R.id.container, new Terrasse()).commit();
-                        break;
-                    case "2": fr.replace(R.id.container, new Whirlpool()).commit();
-                        break;
-                    case "4": fr.replace(R.id.container, new Pool()).commit();
-                        break;
-                    case "5": fr.replace(R.id.container, new Whirlpool()).commit();
-                        break;
-                    case "7": fr.replace(R.id.container, new Pool()).commit();
-                        break;
-                    default: fr.replace(R.id.container, new Welcome()).commit();
+        back.setOnClickListener(v -> {
+            FragmentTransaction fr = requireActivity().getSupportFragmentManager().beginTransaction();
+            switch(fragmentNumber)
+            {
+                case "1": fr.replace(R.id.container, new Terrasse()).commit();
                     break;
-                }
+                case "2":
+                case "5":
+                    fr.replace(R.id.container, new Whirlpool()).commit();
+                    break;
+                case "4":
+                case "7":
+                    fr.replace(R.id.container, new Pool()).commit();
+                    break;
+                default: fr.replace(R.id.container, new Welcome()).commit();
+                break;
             }
         });
 
@@ -71,10 +68,11 @@ public class Color extends Fragment {
         super.onResume();
         View view = getView();
 
-        ArrayList<String> lightName = new ArrayList<String>();
-        ArrayList<String> lightProzent = new ArrayList<String>();
-        ArrayList<String> lightId = new ArrayList<String>();
+        ArrayList<String> lightName = new ArrayList<>();
+        ArrayList<String> lightProzent = new ArrayList<>();
+        ArrayList<String> lightId = new ArrayList<>();
 
+        assert view != null;
         context = view.getContext();
 
         new HueRequester(context).hueRequesterLightsGroup(new HueRequester.VolleyResponseListenerHue() {

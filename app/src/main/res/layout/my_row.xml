@@ -28,10 +28,11 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
+                android:paddingStart="15dp"
                 android:paddingTop="10dp"
                 tools:layout_editor_absoluteX="15dp"
-                tools:layout_editor_absoluteY="10dp">
+                tools:layout_editor_absoluteY="10dp"
+                tools:ignore="RtlSymmetry">
 
                 <!-- Add your UI elements -->
 
@@ -42,7 +43,7 @@
                     android:fontFamily="@font/kanitfont"
                     android:letterSpacing="0.08"
                     android:paddingTop="0dp"
-                    android:text="Lampe 1"
+                    android:text="@string/lampe_1"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -57,7 +58,8 @@
                 android:paddingLeft="15dp"
                 android:paddingTop="10dp"
                 tools:layout_editor_absoluteX="15dp"
-                tools:layout_editor_absoluteY="10dp">
+                tools:layout_editor_absoluteY="10dp"
+                tools:ignore="RtlHardcoded,RtlSymmetry">
 
                 <!-- Add your UI elements -->
 
@@ -75,7 +77,7 @@
                         android:fontFamily="@font/kanitfont"
                         android:letterSpacing="0.08"
                         android:paddingTop="0dp"
-                        android:text="0%"
+                        android:text="@string/_0"
                         android:textColor="#95a5b5"
                         android:textSize="13sp" />
                 </RelativeLayout>
@@ -90,7 +92,8 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginRight="13dp"
-                        app:srcCompat="@drawable/colorpicker" />
+                        app:srcCompat="@drawable/colorpicker"
+                        android:contentDescription="@string/colorpicker" />
                 </RelativeLayout>
 
             </RelativeLayout>
@@ -102,7 +105,8 @@
                 android:gravity="left"
                 android:paddingTop="50dp"
                 tools:layout_editor_absoluteX="90dp"
-                tools:layout_editor_absoluteY="60dp">
+                tools:layout_editor_absoluteY="60dp"
+                tools:ignore="RtlHardcoded">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -110,13 +114,15 @@
                     android:layout_gravity="left"
                     android:layout_marginTop="10dp"
                     android:gravity="left"
-                    android:paddingLeft="15dp">
+                    android:paddingLeft="15dp"
+                    tools:ignore="RtlSymmetry">
 
                     <ImageView
                         android:id="@+id/licht1"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        app:srcCompat="@drawable/sonne_slider_klein" />
+                        app:srcCompat="@drawable/sonne_slider_klein"
+                        android:contentDescription="@string/kleines_licht" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -154,13 +160,15 @@
                     android:layout_marginTop="8dp"
                     android:gravity="right"
                     android:paddingRight="15dp"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    tools:ignore="RtlSymmetry">
 
                     <ImageView
                         android:id="@+id/licht100"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        app:srcCompat="@drawable/sonne_slider" />
+                        app:srcCompat="@drawable/sonne_slider"
+                        android:contentDescription="@string/grosses_licht" />
                 </RelativeLayout>
 
             </RelativeLayout>

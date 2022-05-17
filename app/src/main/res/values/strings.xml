@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SmartHome</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -13,10 +13,40 @@
     <string name="terrasse">Terrasse</string>
     <string name="whirlpool">Whirlpool</string>
     <string name="blumen">Blumen</string>
-    <string name="pool">Pool</string>
     <string name="poolwand">Poolwand</string>
     <string name="confirm">confirm</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel" tools:ignore="ButtonCase">cancel</string>
+    <string name="zur_ck_button">zurück Button</string>
+    <string name="play_video">Play Video</string>
+    <string name="play_cam">Play Cam</string>
+    <string name="color">Color</string>
+    <string name="pool">Pool</string>
+    <string name="lampe_massif">Lampe massif</string>
+    <string name="aus">Aus</string>
+    <string name="lampe_mur">Lampe mur</string>
+    <string name="pool_couverture">Pool couverture</string>
+    <string name="lampe_piscine">Lampe piscine</string>
+    <string name="lampe_pergola">Lampe Pergola</string>
+    <string name="pergola_store">Pergola store</string>
+    <string name="pergola_toit">Pergola toit</string>
+    <string name="_03_12_2021_14h34">03.12.2021 14h34</string>
+    <string name="production_solaire">Production solaire</string>
+    <string name="consommation">Consommation</string>
+    <string name="voiture">Voiture</string>
+    <string name="outdoor_temp">Outdoor temp.</string>
+    <string name="pool_temp">Pool temp.</string>
+    <string name="todo">TODO</string>
+    <string name="button_whirlpool">Button Whirlpool</string>
+    <string name="button_pool">Button Pool</string>
+    <string name="button_camera">Button Camera</string>
+    <string name="lampe_sol">Lampe sol</string>
+    <string name="lampe_1">Lampe 1</string>
+    <string name="_0">0%</string>
+    <string name="colorpicker">Colorpicker</string>
+    <string name="kleines_licht">kleines Licht</string>
+    <string name="grosses_licht">grosses Licht</string>
+    <string name="button_terrasse">Button Terrasse</string>
+
     <string-array name="programming_languages">
         <item>1</item>
         <item>2</item>

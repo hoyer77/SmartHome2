@@ -2,10 +2,7 @@ package com.smarthome.requester;
 
 import android.content.Context;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.smarthome.GetSolarProduction;
 import com.smarthome.MySingleton;
@@ -41,61 +38,50 @@ public class ShellyRequester {
 
     public void shellyRequesterEM3(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id) {
 
-        String url = QUERY_CONSUMPTION;
         final Integer[] savePower = new Integer[1];
 
         StringRequest request = new StringRequest(Request.Method.POST,
-                url,
-                new Response.Listener<String>() {
-                    JSONArray jsonArr = new JSONArray();
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            Integer power = 0;
-                            Integer test;
-                            JSONObject aktConsumption = new JSONObject(response);
-                            aktConsumption = aktConsumption.getJSONObject("data");
-                            aktConsumption = aktConsumption.getJSONObject("device_status");
-                            JSONArray emeters = aktConsumption.getJSONArray("emeters");
-                            for(int i = 0 ; i < emeters.length() ; i++){
-                                test = (int) emeters.getJSONObject(i).getDouble("power");
-                                power += test;
-                            }
-                            savePower[0] = Integer.parseInt(String.valueOf(power));
-
-                            // Aktuelle Solarproduktion abfragen
-                            final GetSolarProduction getSolarProduction = new GetSolarProduction(appContext);
-                            final String[] solarPower = new String[1];
-                            try {
-                                getSolarProduction.GetSolarProduction(new GetSolarProduction.VolleyResponseListener() {
-                                    @Override
-                                    public void onError(String message, Integer savePower) {
-                                        volleyResponseListenerShelly.onResponse(savePower);
-                                    }
-
-
-                                    @Override
-                                    public void onResponse(Integer power, Integer response) {
-                                        solarPower[0] = response.toString();
-                                        response += power;
-                                        volleyResponseListenerShelly.onResponse(response);
-                                    }
-                                    }, savePower[0]);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
-                        }catch (JSONException err){
-                            volleyResponseListenerShelly.onError("no Connect to catch");
+                QUERY_CONSUMPTION,
+                response -> {
+                    try {
+                        Integer power = 0;
+                        Integer test;
+                        JSONObject aktConsumption = new JSONObject(response);
+                        aktConsumption = aktConsumption.getJSONObject("data");
+                        aktConsumption = aktConsumption.getJSONObject("device_status");
+                        JSONArray emeters = aktConsumption.getJSONArray("emeters");
+                        for(int i = 0 ; i < emeters.length() ; i++){
+                            test = (int) emeters.getJSONObject(i).getDouble("power");
+                            power += test;
                         }
-                    }
-                }, new Response.ErrorListener() {
+                        savePower[0] = Integer.parseInt(String.valueOf(power));
 
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                volleyResponseListenerShelly.onError("Something wrong");
-            }
-        })
+                        // Aktuelle Solarproduktion abfragen
+                        final GetSolarProduction getSolarProduction = new GetSolarProduction(appContext);
+                        final String[] solarPower = new String[1];
+                        try {
+                            getSolarProduction.getSolarProduction(new GetSolarProduction.VolleyResponseListener() {
+                                @Override
+                                public void onError(String message, Integer savePower1) {
+                                    volleyResponseListenerShelly.onResponse(savePower1);
+                                }
+
+
+                                @Override
+                                public void onResponse(Integer power, Integer response) {
+                                    solarPower[0] = response.toString();
+                                    response += power;
+                                    volleyResponseListenerShelly.onResponse(response);
+                                }
+                                }, savePower[0]);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }catch (JSONException err){
+                        volleyResponseListenerShelly.onError("no Connect to catch");
+                    }
+                }, error -> volleyResponseListenerShelly.onError("Something wrong"))
 
         {
 
@@ -105,8 +91,8 @@ public class ShellyRequester {
             }
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
                 params.put("auth_key", auth_key);
                 params.put("id", id);
                 return params;
@@ -117,32 +103,20 @@ public class ShellyRequester {
     }
     public void shellyRequester1PM(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id) {
 
-        String url = QUERY_CONSUMPTION;
-
         StringRequest request = new StringRequest(Request.Method.POST,
-                url,
-                new Response.Listener<String>() {
-                    JSONArray jsonArr = new JSONArray();
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject aktConsumption = new JSONObject(response);
-                            aktConsumption = aktConsumption.getJSONObject("data");
-                            aktConsumption = aktConsumption.getJSONObject("device_status");
-                            JSONArray meter = aktConsumption.getJSONArray("meters");
-                            Integer power = (int) Math.round(meter.getJSONObject(0).getDouble("power"));
-                            volleyResponseListenerShelly.onResponse(power);
-                        }catch (JSONException err){
-                            volleyResponseListenerShelly.onResponse("no Connect to catch");
-                        }
+                QUERY_CONSUMPTION,
+                response -> {
+                    try {
+                        JSONObject aktConsumption = new JSONObject(response);
+                        aktConsumption = aktConsumption.getJSONObject("data");
+                        aktConsumption = aktConsumption.getJSONObject("device_status");
+                        JSONArray meter = aktConsumption.getJSONArray("meters");
+                        Integer power = (int) Math.round(meter.getJSONObject(0).getDouble("power"));
+                        volleyResponseListenerShelly.onResponse(power);
+                    }catch (JSONException err){
+                        volleyResponseListenerShelly.onResponse("no Connect to catch");
                     }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                volleyResponseListenerShelly.onError("Something wrong");
-            }
-        })
+                }, error -> volleyResponseListenerShelly.onError("Something wrong"))
 
         {
 
@@ -152,8 +126,8 @@ public class ShellyRequester {
             }
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
                 params.put("auth_key", auth_key);
                 params.put("id", id);
                 return params;
@@ -163,32 +137,20 @@ public class ShellyRequester {
     }
     public void shellyRequester1PMState(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id) {
 
-        String url = QUERY_CONSUMPTION;
-
         StringRequest request = new StringRequest(Request.Method.POST,
-                url,
-                new Response.Listener<String>() {
-                    JSONArray jsonArr = new JSONArray();
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject aktConsumption = new JSONObject(response);
-                            aktConsumption = aktConsumption.getJSONObject("data");
-                            aktConsumption = aktConsumption.getJSONObject("device_status");
-                            JSONArray relays = aktConsumption.getJSONArray("relays");
-                            String ison = String.valueOf(relays.getJSONObject(0).getBoolean("ison"));
-                            volleyResponseListenerShelly.onResponse(ison);
-                        }catch (JSONException err){
-                            volleyResponseListenerShelly.onResponse("no Connect to catch");
-                        }
+                QUERY_CONSUMPTION,
+                response -> {
+                    try {
+                        JSONObject aktConsumption = new JSONObject(response);
+                        aktConsumption = aktConsumption.getJSONObject("data");
+                        aktConsumption = aktConsumption.getJSONObject("device_status");
+                        JSONArray relays = aktConsumption.getJSONArray("relays");
+                        String ison = String.valueOf(relays.getJSONObject(0).getBoolean("ison"));
+                        volleyResponseListenerShelly.onResponse(ison);
+                    }catch (JSONException err){
+                        volleyResponseListenerShelly.onResponse("no Connect to catch");
                     }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                volleyResponseListenerShelly.onError("Something wrong");
-            }
-        })
+                }, error -> volleyResponseListenerShelly.onError("Something wrong"))
 
         {
 
@@ -198,8 +160,8 @@ public class ShellyRequester {
             }
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
                 params.put("auth_key", auth_key);
                 params.put("id", id);
                 return params;
@@ -209,31 +171,19 @@ public class ShellyRequester {
     }
     public void shellyRequester1PMTemp(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id) {
 
-        String url = QUERY_CONSUMPTION;
-
         StringRequest request = new StringRequest(Request.Method.POST,
-                url,
-                new Response.Listener<String>() {
-                    JSONArray jsonArr = new JSONArray();
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject aktTemp = new JSONObject(response);
-                            aktTemp = aktTemp.getJSONObject("data");
-                            aktTemp = aktTemp.getJSONObject("device_status");
-                            JSONArray temp = aktTemp.getJSONArray("ext_temperature");
-                            volleyResponseListenerShelly.onResponse(temp);
-                        }catch (JSONException err){
-                            volleyResponseListenerShelly.onResponse("no Connect to catch");
-                        }
+                QUERY_CONSUMPTION,
+                response -> {
+                    try {
+                        JSONObject aktTemp = new JSONObject(response);
+                        aktTemp = aktTemp.getJSONObject("data");
+                        aktTemp = aktTemp.getJSONObject("device_status");
+                        JSONArray temp = aktTemp.getJSONArray("ext_temperature");
+                        volleyResponseListenerShelly.onResponse(temp);
+                    }catch (JSONException err){
+                        volleyResponseListenerShelly.onResponse("no Connect to catch");
                     }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                volleyResponseListenerShelly.onError("Something wrong");
-            }
-        })
+                }, error -> volleyResponseListenerShelly.onError("Something wrong"))
 
         {
 
@@ -243,8 +193,8 @@ public class ShellyRequester {
             }
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
                 params.put("auth_key", auth_key);
                 params.put("id", id);
                 return params;
@@ -255,23 +205,11 @@ public class ShellyRequester {
 
     public void shellyRequester25(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id, String direction) {
 
-        String url = QUERY_ROLLADEN;
-
         StringRequest request = new StringRequest(Request.Method.POST,
-                url,
-                new Response.Listener<String>() {
-                    JSONArray jsonArr = new JSONArray();
-                    @Override
-                    public void onResponse(String response) {
+                QUERY_ROLLADEN,
+                response -> {
 
-                    }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                volleyResponseListenerShelly.onError("Something wrong");
-            }
-        })
+                }, error -> volleyResponseListenerShelly.onError("Something wrong"))
 
         {
 
@@ -281,8 +219,8 @@ public class ShellyRequester {
             }
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
                 params.put("auth_key", auth_key);
                 params.put("id", id);
                 params.put("direction", direction);
@@ -294,8 +232,6 @@ public class ShellyRequester {
     }
     public void shellyRequester1PMLightSwitch(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id, Integer statePoolLight) {
 
-        String url = QUERY_LIGHTCONROL;
-
         String turn;
         if (statePoolLight==0)
         {
@@ -304,21 +240,8 @@ public class ShellyRequester {
             turn = "off";
         }
         StringRequest request = new StringRequest(Request.Method.POST,
-                url,
-                new Response.Listener<String>() {
-                    JSONArray jsonArr = new JSONArray();
-                    @Override
-                    public void onResponse(String response) {
-                        volleyResponseListenerShelly.onResponse(turn);
-                    }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                volleyResponseListenerShelly.onError("Something wrong");
-                System.out.println(error);
-            }
-        })
+                QUERY_LIGHTCONROL,
+                response -> volleyResponseListenerShelly.onResponse(turn), error -> volleyResponseListenerShelly.onError("Something wrong"))
 
         {
 
@@ -328,8 +251,8 @@ public class ShellyRequester {
             }
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
                 params.put("auth_key", auth_key);
                 params.put("id", id);
                 params.put("turn", turn);

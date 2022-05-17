@@ -9,7 +9,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black">
+        android:background="@color/black"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,7 +21,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="30dp">
+                android:paddingStart="30dp"
+                tools:ignore="RtlSymmetry">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -49,7 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="30dp"
-                    android:gravity="right">
+                    android:gravity="right"
+                    tools:ignore="RtlHardcoded">
 
                     <TextView
                         android:id="@+id/fragment_text_terrasse"
@@ -58,7 +61,7 @@
                         android:fontFamily="@font/poppins"
                         android:gravity="left"
                         android:paddingRight="20dp"
-                        android:text="Terrasse"
+                        android:text="@string/terrasse"
                         android:textColor="@color/welcome_textcolor"
                         android:textSize="30sp" />
 
@@ -69,7 +72,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="30dp">
+                android:paddingStart="30dp"
+                tools:ignore="RtlSymmetry">
 
                 <TableLayout
                     android:layout_width="match_parent"
@@ -83,7 +87,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="180dp"
                             android:layout_height="180dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -106,14 +110,15 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <RelativeLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded,TooDeepLayout">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/onoff"
@@ -131,7 +136,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/changeScene"
@@ -151,7 +157,7 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Lampe Pergola"
+                                        android:text="@string/lampe_pergola"
                                         android:textColor="#95a5b5"
                                         android:textSize="13sp" />
 
@@ -182,7 +188,7 @@
                                             android:fontFamily="@font/kanitfont"
                                             android:letterSpacing="0.08"
                                             android:paddingTop="120dp"
-                                            android:text="Aus"
+                                            android:text="@string/aus"
                                             android:textColor="#FFFFFF"
                                             android:textSize="18sp"
                                             android:textStyle="bold" />
@@ -199,7 +205,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="180dp"
                             android:layout_height="180dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -216,14 +222,15 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <RelativeLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/storen_up"
@@ -240,7 +247,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/storen_pause"
@@ -258,7 +266,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/storen_down"
@@ -279,7 +288,7 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Pergola store"
+                                        android:text="@string/pergola_store"
                                         android:textColor="#95a5b5"
                                         android:textSize="13sp" />
 
@@ -308,7 +317,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="180dp"
                             android:layout_height="180dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -325,14 +334,15 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:paddingLeft="15dp">
+                                    android:paddingStart="15dp">
 
                                     <!-- Add your UI elements -->
                                     <RelativeLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/dach_open"
@@ -349,7 +359,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/dach_pause"
@@ -367,7 +378,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="right"
-                                        android:paddingTop="15dp">
+                                        android:paddingTop="15dp"
+                                        tools:ignore="RtlHardcoded">
 
                                         <de.hdodenhof.circleimageview.CircleImageView
                                             android:id="@+id/dach_down"
@@ -388,7 +400,7 @@
                                         android:fontFamily="@font/kanitfont"
                                         android:letterSpacing="0.08"
                                         android:paddingTop="100dp"
-                                        android:text="Pergola toit"
+                                        android:text="@string/pergola_toit"
                                         android:textColor="#95a5b5"
                                         android:textSize="13sp" />
 
@@ -426,7 +438,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:orientation="horizontal"
-            android:paddingStart="30dp">
+            android:paddingStart="30dp"
+            tools:ignore="RtlSymmetry">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -436,7 +449,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:gravity="left">
+                    android:gravity="left"
+                    tools:ignore="RtlHardcoded">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/btn_back"

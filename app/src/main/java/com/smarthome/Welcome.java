@@ -211,7 +211,6 @@ public class Welcome extends Fragment {
     {
         NumberFormat nf = NumberFormat.getNumberInstance(new Locale("de","CH"));
         nf.setMaximumFractionDigits(2);
-        DecimalFormat df = (DecimalFormat)nf;
         progress_outdoor_temp.setVisibility(View.GONE);
         outdoor_temp.setText(mText + " °");
     }
@@ -221,7 +220,6 @@ public class Welcome extends Fragment {
     {
         NumberFormat nf = NumberFormat.getNumberInstance(new Locale("de","CH"));
         nf.setMaximumFractionDigits(2);
-        DecimalFormat df = (DecimalFormat)nf;
         progress_pool_temp.setVisibility(View.GONE);
         pool_temp.setText(mText + " °");
     }
@@ -232,7 +230,7 @@ public class Welcome extends Fragment {
         final GetSolarProduction getSolarProduction = new GetSolarProduction(context);
 
         try {
-            getSolarProduction.GetSolarProduction(new GetSolarProduction.VolleyResponseListener() {
+            getSolarProduction.getSolarProduction(new GetSolarProduction.VolleyResponseListener() {
 
                 @SuppressLint("SetTextI18n")
                 @Override

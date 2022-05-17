@@ -1,31 +1,24 @@
 package com.smarthome;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.android.material.slider.Slider;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.smarthome.requester.HueRequester;
 import com.smarthome.requester.ShellyRequester;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,7 +66,7 @@ public class Pool extends Fragment {
 
 
         // Alle Szenen
-        Map<String, String> buttonScenes_massif = new HashMap<String, String>();
+        Map<String, String> buttonScenes_massif = new HashMap<>();
         buttonScenes_massif.put("Hell", "Zgeu6dS5zujOCFf");
         buttonScenes_massif.put("Weiss", "keMVkwzByMGXVgP");
         buttonScenes_massif.put("Energie", "NTG0q9KJCtBDxUX");
@@ -86,14 +79,14 @@ public class Pool extends Fragment {
         buttonScenes_massif.put("4", "Sonne");
         buttonScenes_massif.put("5", "Troppen");
 
-        Map<String, String> possibleScenes_massif = new HashMap<String, String>();
+        Map<String, String> possibleScenes_massif = new HashMap<>();
         possibleScenes_massif.put("Hell", "ReLoEqI9tDzEfhD");
         possibleScenes_massif.put("Weiss", "TclYvk-BorTvx6s");
         possibleScenes_massif.put("Energie", "7j-EQYrM2UXNSmk");
         possibleScenes_massif.put("Sonne", "HPguGiw5qWH-afC");
         possibleScenes_massif.put("Tropen", "pXxakauRONqXKbj");
 
-        Map<String, String> buttonScenes_mauer = new HashMap<String, String>();
+        Map<String, String> buttonScenes_mauer = new HashMap<>();
         buttonScenes_mauer.put("Hell", "77-qmddnlkCicWx");
         buttonScenes_mauer.put("Weiss", "u87djJZRZ1sshU3");
         buttonScenes_mauer.put("Energie", "zPsXxZ7as9EIVqK");
@@ -106,7 +99,7 @@ public class Pool extends Fragment {
         buttonScenes_mauer.put("4", "Sonne");
         buttonScenes_mauer.put("5", "Troppen");
 
-        Map<String, String> possibleScenes_mauer = new HashMap<String, String>();
+        Map<String, String> possibleScenes_mauer = new HashMap<>();
         possibleScenes_mauer.put("Hell", "77-qmddnlkCicWx");
         possibleScenes_mauer.put("Weiss", "u87djJZRZ1sshU3");
         possibleScenes_mauer.put("Energie", "zPsXxZ7as9EIVqK");
@@ -219,7 +212,7 @@ public class Pool extends Fragment {
 
             @Override
             public void onResponse(String lightState) {
-                if (lightState=="false")
+                if (lightState.equals("false"))
                 {
                     lampe_pool.setImageResource(R.drawable.lampe_aus);
                     statePoolLight = 0;
@@ -235,266 +228,29 @@ public class Pool extends Fragment {
 
         }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84a12cc8");
 
-        changeScene_mauer = (ImageView) view.findViewById(R.id.pool_mauer_changeScene);
-        changeScene_mauer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                aktScene_mauer++;
-                Integer maxScene = buttonScenes_mauer.size()/2;
-                if (aktScene_mauer > maxScene)
-                {
-                    aktScene_mauer = 0;
-                }
-                changeAktSceneMauer(aktScene_mauer, buttonScenes_mauer);
+        changeScene_mauer = view.findViewById(R.id.pool_mauer_changeScene);
+        changeScene_mauer.setOnClickListener(v -> {
+            aktScene_mauer++;
+            int maxScene = buttonScenes_mauer.size()/2;
+            if (aktScene_mauer > maxScene)
+            {
+                aktScene_mauer = 0;
             }
+            changeAktSceneMauer(aktScene_mauer, buttonScenes_mauer);
         });
 
-        changeScene_massif = (ImageView) view.findViewById(R.id.pool_massif_changeScene);
-        changeScene_massif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                aktScene_massif++;
-                Integer maxScene = buttonScenes_massif.size()/2;
-                if (aktScene_massif > maxScene)
-                {
-                    aktScene_massif = 0;
-                }
-                changeAktSceneMassif(aktScene_massif, buttonScenes_massif);
+        changeScene_massif = view.findViewById(R.id.pool_massif_changeScene);
+        changeScene_massif.setOnClickListener(v -> {
+            aktScene_massif++;
+            int maxScene = buttonScenes_massif.size()/2;
+            if (aktScene_massif > maxScene)
+            {
+                aktScene_massif = 0;
             }
+            changeAktSceneMassif(aktScene_massif, buttonScenes_massif);
         });
 
-        onoff_mauer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new HueRequester(context).hueRequesterLightChange(new HueRequester.VolleyResponseListenerHue() {
-                    @Override
-                    public void onResponse(float sliderStatus) {
-                    }
-
-                    @Override
-                    public void onResponse(JSONArray lightxy) {
-
-                    }
-
-                    @Override
-                    public void onError(String message) {
-                    }
-
-                    @Override
-                    public void onResponse(String hueState) {
-                        if (hueState.contains("true"))
-                        {
-                            lampe_mauer.setImageResource(R.drawable.lampe_an);
-                            poolScene_mauer.setText("");
-                            aktScene_mauer = 1;
-                        } else {
-                            lampe_mauer.setImageResource(R.drawable.lampe_aus);
-                            poolScene_mauer.setText("Aus");
-                            aktScene_mauer = 0;
-                        }
-                    }
-
-                    @Override
-                    public void onResponse(Integer hueState) {
-                    }
-
-                    @Override
-                    public void onResponse(Boolean hueState) {
-                    }
-                }, "7");
-            }
-        });
-        onoff_massif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new HueRequester(context).hueRequesterLightChange(new HueRequester.VolleyResponseListenerHue() {
-                    @Override
-                    public void onResponse(float sliderStatus) {
-                    }
-
-                    @Override
-                    public void onResponse(JSONArray lightxy) {
-
-                    }
-
-                    @Override
-                    public void onError(String message) {
-                    }
-
-                    @Override
-                    public void onResponse(String hueState) {
-                        if (hueState.contains("true"))
-                        {
-                            lampe_massif.setImageResource(R.drawable.lampe_an);
-                            poolScene_massif.setText("");
-                            aktScene_massif = 1;
-                        } else {
-                            lampe_massif.setImageResource(R.drawable.lampe_aus);
-                            poolScene_massif.setText("Aus");
-                            aktScene_massif = 0;
-                        }
-                    }
-
-                    @Override
-                    public void onResponse(Integer hueState) {
-                    }
-
-                    @Override
-                    public void onResponse(Boolean hueState) {
-                    }
-                }, "4");
-            }
-        });
-        onoff_pool.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new ShellyRequester(context).shellyRequester1PMLightSwitch(new ShellyRequester.VolleyResponseListenerShelly() {
-
-                    @Override
-                    public void onResponse(JSONArray lightxy) {
-
-                    }
-
-                    @Override
-                    public void onError(String message) {
-                    }
-
-                    @Override
-                    public void onResponse(String hueState) {
-                        if (hueState.contains("on"))
-                        {
-                            lampe_pool.setImageResource(R.drawable.lampe_an);
-                            statePoolLight = 1;
-                        } else {
-                            lampe_pool.setImageResource(R.drawable.lampe_aus);
-                            statePoolLight = 0;
-                        }
-                    }
-
-                    @Override
-                    public void onResponse(Integer hueState) {
-                    }
-                    }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84a12cc8", statePoolLight );
-            }
-        });
-
-        // Steuerung des zurück-Buttons
-        back = view.findViewById(R.id.btn_back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
-                fr.replace(R.id.container, new Welcome()).commit();
-            }
-        });
-
-        RelativeLayout colorPoolMassif = view.findViewById(R.id.color_pool_massif);
-        colorPoolMassif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
-                fr.replace(R.id.container, new Color(), "4").commit();
-            }
-        });
-
-        RelativeLayout colorPoolMauer = view.findViewById(R.id.color_pool_mauer);
-        colorPoolMauer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
-                fr.replace(R.id.container, new Color(), "7").commit();
-            }
-        });
-
-
-        // Steuerung der Abdeckung
-
-        openAbdeckung =  view.findViewById(R.id.pool_up);
-        openAbdeckung.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new ShellyRequester(context).shellyRequester25(new ShellyRequester.VolleyResponseListenerShelly() {
-                    @Override
-                    public void onError(String message) {
-                    }
-
-                    @Override
-                    public void onResponse(Integer shellyPower) {
-                    }
-
-                    @Override
-                    public void onResponse(JSONArray aktTemp) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String shellyPower) {
-
-                    }
-                }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84aa1c55", "open");
-            }
-        }));
-
-        stopAbdeckung = view.findViewById(R.id.pool_pause);
-        stopAbdeckung.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new ShellyRequester(context).shellyRequester25(new ShellyRequester.VolleyResponseListenerShelly() {
-                    @Override
-                    public void onError(String message) {
-                    }
-
-                    @Override
-                    public void onResponse(Integer shellyPower) {
-                    }
-
-                    @Override
-                    public void onResponse(JSONArray aktTemp) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String shellyPower) {
-
-                    }
-                }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84aa1c55", "stop");
-                System.out.println("Up");
-            }
-        }));
-
-
-        closeAbdeckung = view.findViewById(R.id.pool_down);
-        closeAbdeckung.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new ShellyRequester(context).shellyRequester25(new ShellyRequester.VolleyResponseListenerShelly() {
-                    @Override
-                    public void onError(String message) {
-                    }
-
-                    @Override
-                    public void onResponse(Integer shellyPower) {
-                    }
-
-                    @Override
-                    public void onResponse(JSONArray aktTemp) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String shellyPower) {
-
-                    }
-                }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84aa1c55", "close");
-                System.out.println("Down");
-            }
-        }));
-        
-        return view;
-    }
-
-    public void requestChangeSceneMauer (String gruppe, String scene)  {
-        new HueRequester(context).hueRequesterSceneChange(new HueRequester.VolleyResponseListenerHue() {
+        onoff_mauer.setOnClickListener(v -> new HueRequester(context).hueRequesterLightChange(new HueRequester.VolleyResponseListenerHue() {
             @Override
             public void onResponse(float sliderStatus) {
             }
@@ -508,8 +264,19 @@ public class Pool extends Fragment {
             public void onError(String message) {
             }
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(String hueState) {
+                if (hueState.contains("true"))
+                {
+                    lampe_mauer.setImageResource(R.drawable.lampe_an);
+                    poolScene_mauer.setText("");
+                    aktScene_mauer = 1;
+                } else {
+                    lampe_mauer.setImageResource(R.drawable.lampe_aus);
+                    poolScene_mauer.setText("Aus");
+                    aktScene_mauer = 0;
+                }
             }
 
             @Override
@@ -519,7 +286,169 @@ public class Pool extends Fragment {
             @Override
             public void onResponse(Boolean hueState) {
             }
-        }, gruppe, scene);
+        }, "7"));
+        onoff_massif.setOnClickListener(v -> new HueRequester(context).hueRequesterLightChange(new HueRequester.VolleyResponseListenerHue() {
+            @Override
+            public void onResponse(float sliderStatus) {
+            }
+
+            @Override
+            public void onResponse(JSONArray lightxy) {
+
+            }
+
+            @Override
+            public void onError(String message) {
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(String hueState) {
+                if (hueState.contains("true"))
+                {
+                    lampe_massif.setImageResource(R.drawable.lampe_an);
+                    poolScene_massif.setText("");
+                    aktScene_massif = 1;
+                } else {
+                    lampe_massif.setImageResource(R.drawable.lampe_aus);
+                    poolScene_massif.setText("Aus");
+                    aktScene_massif = 0;
+                }
+            }
+
+            @Override
+            public void onResponse(Integer hueState) {
+            }
+
+            @Override
+            public void onResponse(Boolean hueState) {
+            }
+        }, "4"));
+        onoff_pool.setOnClickListener(v -> new ShellyRequester(context).shellyRequester1PMLightSwitch(new ShellyRequester.VolleyResponseListenerShelly() {
+
+            @Override
+            public void onResponse(JSONArray lightxy) {
+
+            }
+
+            @Override
+            public void onError(String message) {
+            }
+
+            @Override
+            public void onResponse(String hueState) {
+                if (hueState.contains("on"))
+                {
+                    lampe_pool.setImageResource(R.drawable.lampe_an);
+                    statePoolLight = 1;
+                } else {
+                    lampe_pool.setImageResource(R.drawable.lampe_aus);
+                    statePoolLight = 0;
+                }
+            }
+
+            @Override
+            public void onResponse(Integer hueState) {
+            }
+            }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84a12cc8", statePoolLight ));
+
+        // Steuerung des zurück-Buttons
+        back = view.findViewById(R.id.btn_back);
+        back.setOnClickListener(v -> {
+            FragmentTransaction fr = requireActivity().getSupportFragmentManager().beginTransaction();
+            fr.replace(R.id.container, new Welcome()).commit();
+        });
+
+        RelativeLayout colorPoolMassif = view.findViewById(R.id.color_pool_massif);
+        colorPoolMassif.setOnClickListener(v -> {
+            FragmentTransaction fr = requireActivity().getSupportFragmentManager().beginTransaction();
+            fr.replace(R.id.container, new Color(), "4").commit();
+        });
+
+        RelativeLayout colorPoolMauer = view.findViewById(R.id.color_pool_mauer);
+        colorPoolMauer.setOnClickListener(v -> {
+            FragmentTransaction fr = requireActivity().getSupportFragmentManager().beginTransaction();
+            fr.replace(R.id.container, new Color(), "7").commit();
+        });
+
+
+        // Steuerung der Abdeckung
+
+        openAbdeckung =  view.findViewById(R.id.pool_up);
+        openAbdeckung.setOnClickListener((view1 -> new ShellyRequester(context).shellyRequester25(new ShellyRequester.VolleyResponseListenerShelly() {
+            @Override
+            public void onError(String message) {
+            }
+
+            @Override
+            public void onResponse(Integer shellyPower) {
+            }
+
+            @Override
+            public void onResponse(JSONArray aktTemp) {
+
+            }
+
+            @Override
+            public void onResponse(String shellyPower) {
+
+            }
+        }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84aa1c55", "open")));
+
+        stopAbdeckung = view.findViewById(R.id.pool_pause);
+        stopAbdeckung.setOnClickListener((view12 -> {
+            new ShellyRequester(context).shellyRequester25(new ShellyRequester.VolleyResponseListenerShelly() {
+                @Override
+                public void onError(String message) {
+                }
+
+                @Override
+                public void onResponse(Integer shellyPower) {
+                }
+
+                @Override
+                public void onResponse(JSONArray aktTemp) {
+
+                }
+
+                @Override
+                public void onResponse(String shellyPower) {
+
+                }
+            }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84aa1c55", "stop");
+            System.out.println("Up");
+        }));
+
+
+        closeAbdeckung = view.findViewById(R.id.pool_down);
+        closeAbdeckung.setOnClickListener((view13 -> {
+            new ShellyRequester(context).shellyRequester25(new ShellyRequester.VolleyResponseListenerShelly() {
+                @Override
+                public void onError(String message) {
+                }
+
+                @Override
+                public void onResponse(Integer shellyPower) {
+                }
+
+                @Override
+                public void onResponse(JSONArray aktTemp) {
+
+                }
+
+                @Override
+                public void onResponse(String shellyPower) {
+
+                }
+            }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84aa1c55", "close");
+            System.out.println("Down");
+        }));
+        
+        return view;
+    }
+
+    public void requestChangeSceneMauer (String gruppe, String scene)  {
+        new HueRequester(context).hueRequesterSceneChange(gruppe, scene);
 
     }
 
@@ -588,38 +517,14 @@ public class Pool extends Fragment {
                 }, "7");
             }
         }
+        assert scene != null;
         String cap = scene.substring(0, 1).toUpperCase() + scene.substring(1);
         poolScene_mauer.setText(cap);
         requestChangeSceneMauer("7", sceneCode);
     }
 
     public void requestChangeSceneMassif (String gruppe, String scene)  {
-        new HueRequester(context).hueRequesterSceneChange(new HueRequester.VolleyResponseListenerHue() {
-            @Override
-            public void onResponse(float sliderStatus) {
-            }
-
-            @Override
-            public void onResponse(JSONArray lightxy) {
-
-            }
-
-            @Override
-            public void onError(String message) {
-            }
-
-            @Override
-            public void onResponse(String hueState) {
-            }
-
-            @Override
-            public void onResponse(Integer hueState) {
-            }
-
-            @Override
-            public void onResponse(Boolean hueState) {
-            }
-        }, gruppe, scene);
+        new HueRequester(context).hueRequesterSceneChange(gruppe, scene);
 
     }
 
@@ -688,6 +593,7 @@ public class Pool extends Fragment {
                 }, "4");
             }
         }
+        assert scene != null;
         String cap = scene.substring(0, 1).toUpperCase() + scene.substring(1);
         poolScene_massif.setText(cap);
         requestChangeSceneMassif("4", sceneCode);
@@ -698,11 +604,12 @@ public class Pool extends Fragment {
         super.onResume();
         View view = getView();
 
+        assert view != null;
         context = view.getContext();
 
 
         // Alle Szenen
-        Map<String, String> buttonScenes_massif = new HashMap<String, String>();
+        Map<String, String> buttonScenes_massif = new HashMap<>();
         buttonScenes_massif.put("Hell", "Zgeu6dS5zujOCFf");
         buttonScenes_massif.put("Weiss", "keMVkwzByMGXVgP");
         buttonScenes_massif.put("Energie", "NTG0q9KJCtBDxUX");
@@ -715,14 +622,14 @@ public class Pool extends Fragment {
         buttonScenes_massif.put("4", "Sonne");
         buttonScenes_massif.put("5", "Troppen");
 
-        Map<String, String> possibleScenes_massif = new HashMap<String, String>();
+        Map<String, String> possibleScenes_massif = new HashMap<>();
         possibleScenes_massif.put("Hell", "ReLoEqI9tDzEfhD");
         possibleScenes_massif.put("Weiss", "TclYvk-BorTvx6s");
         possibleScenes_massif.put("Energie", "7j-EQYrM2UXNSmk");
         possibleScenes_massif.put("Sonne", "HPguGiw5qWH-afC");
         possibleScenes_massif.put("Tropen", "pXxakauRONqXKbj");
 
-        Map<String, String> buttonScenes_mauer = new HashMap<String, String>();
+        Map<String, String> buttonScenes_mauer = new HashMap<>();
         buttonScenes_mauer.put("Hell", "77-qmddnlkCicWx");
         buttonScenes_mauer.put("Weiss", "u87djJZRZ1sshU3");
         buttonScenes_mauer.put("Energie", "zPsXxZ7as9EIVqK");
@@ -735,7 +642,7 @@ public class Pool extends Fragment {
         buttonScenes_mauer.put("4", "Sonne");
         buttonScenes_mauer.put("5", "Troppen");
 
-        Map<String, String> possibleScenes_mauer = new HashMap<String, String>();
+        Map<String, String> possibleScenes_mauer = new HashMap<>();
         possibleScenes_mauer.put("Hell", "77-qmddnlkCicWx");
         possibleScenes_mauer.put("Weiss", "u87djJZRZ1sshU3");
         possibleScenes_mauer.put("Energie", "zPsXxZ7as9EIVqK");
