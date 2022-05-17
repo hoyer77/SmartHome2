@@ -22,6 +22,7 @@ public class ShellyRequester {
 
     private static final String QUERY_CONSUMPTION = "https://shelly-28-eu.shelly.cloud/device/status";
     private static final String QUERY_ROLLADEN = "https://shelly-28-eu.shelly.cloud/device/relay/roller/control";
+    private static final String QUERY_LIGHTCONROL = "https://shelly-28-eu.shelly.cloud/device/relay/control";
     Context appContext;
 
     public ShellyRequester(Context appContext) {
@@ -160,6 +161,52 @@ public class ShellyRequester {
         };
         MySingleton.getInstance(appContext).addToRequestQueue(request);
     }
+    public void shellyRequester1PMState(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id) {
+
+        String url = QUERY_CONSUMPTION;
+
+        StringRequest request = new StringRequest(Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    JSONArray jsonArr = new JSONArray();
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject aktConsumption = new JSONObject(response);
+                            aktConsumption = aktConsumption.getJSONObject("data");
+                            aktConsumption = aktConsumption.getJSONObject("device_status");
+                            JSONArray relays = aktConsumption.getJSONArray("relays");
+                            String ison = String.valueOf(relays.getJSONObject(0).getBoolean("ison"));
+                            volleyResponseListenerShelly.onResponse(ison);
+                        }catch (JSONException err){
+                            volleyResponseListenerShelly.onResponse("no Connect to catch");
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                volleyResponseListenerShelly.onError("Something wrong");
+            }
+        })
+
+        {
+
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("auth_key", auth_key);
+                params.put("id", id);
+                return params;
+            }
+        };
+        MySingleton.getInstance(appContext).addToRequestQueue(request);
+    }
     public void shellyRequester1PMTemp(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id) {
 
         String url = QUERY_CONSUMPTION;
@@ -244,6 +291,55 @@ public class ShellyRequester {
 
         };
         MySingleton.getInstance(appContext).addToRequestQueue(request);
+    }
+    public void shellyRequester1PMLightSwitch(VolleyResponseListenerShelly volleyResponseListenerShelly, String auth_key, String id, Integer statePoolLight) {
+
+        String url = QUERY_LIGHTCONROL;
+
+        String turn;
+        if (statePoolLight==0)
+        {
+            turn = "on";
+        } else {
+            turn = "off";
+        }
+        StringRequest request = new StringRequest(Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    JSONArray jsonArr = new JSONArray();
+                    @Override
+                    public void onResponse(String response) {
+                        volleyResponseListenerShelly.onResponse(turn);
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                volleyResponseListenerShelly.onError("Something wrong");
+                System.out.println(error);
+            }
+        })
+
+        {
+
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("auth_key", auth_key);
+                params.put("id", id);
+                params.put("turn", turn);
+                params.put("channel", "0");
+                return params;
+            }
+
+        };
+        MySingleton.getInstance(appContext).addToRequestQueue(request);
+
     }
 
 }

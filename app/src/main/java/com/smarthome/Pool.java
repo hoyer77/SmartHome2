@@ -42,6 +42,8 @@ public class Pool extends Fragment {
     Integer aktScene_mauer;
     CircleImageView lampe_mauer;
     CircleImageView onoff_mauer;
+    CircleImageView lampe_pool;
+    CircleImageView onoff_pool;
     ImageView changeScene_massif;
     Integer aktScene_massif;
     CircleImageView lampe_massif;
@@ -49,6 +51,7 @@ public class Pool extends Fragment {
     CircleImageView openAbdeckung;
     CircleImageView closeAbdeckung;
     CircleImageView stopAbdeckung;
+    Integer statePoolLight;
 
     CircleImageView back;
 
@@ -64,6 +67,10 @@ public class Pool extends Fragment {
         onoff_mauer = view.findViewById(R.id.pool_mauer_onoff);
         lampe_massif = view.findViewById(R.id.pool_massif_lampe);
         onoff_massif = view.findViewById(R.id.pool_massif_onoff);
+
+        lampe_pool = view.findViewById(R.id.pool_lampe);
+        onoff_pool = view.findViewById(R.id.pool_lampe_onoff);
+
 
         // Alle Szenen
         Map<String, String> buttonScenes_massif = new HashMap<String, String>();
@@ -200,6 +207,34 @@ public class Pool extends Fragment {
             }
         }, "4", possibleScenes_massif);
 
+        new ShellyRequester(context).shellyRequester1PMState(new ShellyRequester.VolleyResponseListenerShelly() {
+
+            @Override
+            public void onResponse(JSONArray stateScene) {
+            }
+
+            @Override
+            public void onError(String message) {
+            }
+
+            @Override
+            public void onResponse(String lightState) {
+                if (lightState=="false")
+                {
+                    lampe_pool.setImageResource(R.drawable.lampe_aus);
+                    statePoolLight = 0;
+                } else {
+                    lampe_pool.setImageResource(R.drawable.lampe_an);
+                    statePoolLight = 1;
+                }
+            }
+
+            @Override
+            public void onResponse(Integer hueState) {
+            }
+
+        }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84a12cc8");
+
         changeScene_mauer = (ImageView) view.findViewById(R.id.pool_mauer_changeScene);
         changeScene_mauer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -310,6 +345,38 @@ public class Pool extends Fragment {
                 }, "4");
             }
         });
+        onoff_pool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new ShellyRequester(context).shellyRequester1PMLightSwitch(new ShellyRequester.VolleyResponseListenerShelly() {
+
+                    @Override
+                    public void onResponse(JSONArray lightxy) {
+
+                    }
+
+                    @Override
+                    public void onError(String message) {
+                    }
+
+                    @Override
+                    public void onResponse(String hueState) {
+                        if (hueState.contains("on"))
+                        {
+                            lampe_pool.setImageResource(R.drawable.lampe_an);
+                            statePoolLight = 1;
+                        } else {
+                            lampe_pool.setImageResource(R.drawable.lampe_aus);
+                            statePoolLight = 0;
+                        }
+                    }
+
+                    @Override
+                    public void onResponse(Integer hueState) {
+                    }
+                    }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84a12cc8", statePoolLight );
+            }
+        });
 
         // Steuerung des zurück-Buttons
         back = view.findViewById(R.id.btn_back);
@@ -365,7 +432,6 @@ public class Pool extends Fragment {
 
                     }
                 }, "NzE5YmJ1aWQ2B848287C2CA4826DAD98E249BC37CBC6BFBC4631C8C679DE900D3CBFB27EA76381D7ECE38ABE2D6", "e8db84aa1c55", "open");
-                System.out.println("Up");
             }
         }));
 
@@ -425,103 +491,6 @@ public class Pool extends Fragment {
         }));
         
         return view;
-    }
-
-    public void getStateStandard(SwitchCompat sw, String gruppe) {
-        // Wir müssen zuerst wissen was für einen Status die Lampe aktuell hat
-        new HueRequester(context).hueRequesterLightState(new HueRequester.VolleyResponseListenerHue() {
-            @Override
-            public void onResponse(float sliderStatus) {
-
-            }
-
-            @Override
-            public void onResponse(JSONArray lightxy) {
-
-            }
-
-            @Override
-            public void onError(String message) {
-                sw.setChecked(false);
-            }
-
-            @Override
-            public void onResponse(Integer hueState) {
-            }
-
-            @Override
-            public void onResponse(Boolean hueState) {
-                sw.setChecked(hueState);
-            }
-
-            @Override
-            public void onResponse(String hueState) {
-            }
-        }, gruppe);
-    }
-
-    public void  getStateSlider(Slider slider) {
-        // Wir müssen zuerst wissen was für einen Status die Lampe aktuell hat
-        new HueRequester(context).hueRequesterSliderState(new HueRequester.VolleyResponseListenerHue() {
-            @Override
-            public void onResponse(float sliderStatus) {
-                slider.setValue(sliderStatus);
-            }
-
-            @Override
-            public void onResponse(JSONArray lightxy) {
-
-            }
-
-            @Override
-            public void onError(String message) {
-                float error = 0;
-                slider.setValue(error);
-            }
-
-            @Override
-            public void onResponse(Boolean hueState) {
-            }
-
-            @Override
-            public void onResponse(String hueState) {
-            }
-
-            @Override
-            public void onResponse(Integer hueState) {
-
-            }
-        }, "7");
-    }
-
-    public void requestChangeScene (String gruppe, String scene) {
-        new HueRequester(context).hueRequesterSceneChange(new HueRequester.VolleyResponseListenerHue() {
-            @Override
-            public void onResponse(float sliderStatus) {
-            }
-
-            @Override
-            public void onResponse(JSONArray lightxy) {
-
-            }
-
-            @Override
-            public void onError(String message) {
-            }
-
-            @Override
-            public void onResponse(String hueState) {
-            }
-
-            @Override
-            public void onResponse(Integer hueState) {
-            }
-
-            @Override
-            public void onResponse(Boolean hueState) {
-            }
-        }, gruppe, scene);
-
     }
 
     public void requestChangeSceneMauer (String gruppe, String scene)  {

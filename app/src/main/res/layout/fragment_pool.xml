@@ -325,6 +325,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="170dp"
                             android:layout_height="170dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             app:cardBackgroundColor="#1C1C1C"
                             app:cardCornerRadius="0dp"
@@ -422,6 +423,82 @@
                                             app:civ_border_width="15dp"
                                             app:civ_circle_background_color="#31383e" />
                                     </RelativeLayout>
+
+                                </RelativeLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            app:cardBackgroundColor="#1C1C1C"
+                            app:cardCornerRadius="0dp"
+                            app:contentPadding="1px">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                app:cardBackgroundColor="#212429"
+                                app:cardCornerRadius="0dp"
+                                app:contentPadding="5dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="15dp">
+
+                                    <!-- Add your UI elements -->
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="right"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/pool_lampe_onoff"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:src="@drawable/onoff"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="10dp"
+                                            app:civ_circle_background_color="#31383e" />
+
+                                    </RelativeLayout>
+
+
+                                    <TextView
+                                        android:id="@+id/text_pool_lampe"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/kanitfont"
+                                        android:letterSpacing="0.08"
+                                        android:paddingTop="100dp"
+                                        android:text="Lampe piscine"
+                                        android:textColor="#95a5b5"
+                                        android:textSize="13sp" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="15dp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/pool_lampe"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/lampe_aus"
+                                            app:civ_border_color="#31383e"
+                                            app:civ_border_width="15dp"
+                                            app:civ_circle_background_color="#31383e" />
+                                    </RelativeLayout>
+
 
                                 </RelativeLayout>
 
