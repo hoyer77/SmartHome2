@@ -2,6 +2,10 @@ package com.smarthome;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.hardware.display.DisplayManager;
 import android.os.Bundle;
 
@@ -16,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.smarthome.requester.ShellyRequester;
 
@@ -26,6 +31,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -126,11 +132,33 @@ public class Welcome extends Fragment {
 
         ImageView btn_cam = view.findViewById(R.id.btn_camera);
         btn_cam.setOnClickListener(view14 -> {
-            if (getActivity() != null) {
-                FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
-                fr.replace(R.id.container, new Cam()).commit();
+            PackageManager pm;
+            pm = context.getPackageManager();
+            Intent appIntent;
+            String packageName = "com.mcu.reolink";
+            try {
+                appIntent = pm.getLaunchIntentForPackage(packageName);
+                startActivity(appIntent);
+            } catch (Exception e) {
+                Toast.makeText(context, "App konnte nicht geöffnet werden", Toast.LENGTH_LONG).show();
             }
         });
+
+
+        ImageView btn_music = view.findViewById(R.id.btn_music);
+        btn_music.setOnClickListener(view14 -> {
+            PackageManager pm;
+            pm = context.getPackageManager();
+            Intent appIntent;
+            String packageName = "uk.org.ngo.squeezer";
+            try {
+                appIntent = pm.getLaunchIntentForPackage(packageName);
+                startActivity(appIntent);
+            } catch (Exception e) {
+                Toast.makeText(context, "App konnte nicht geöffnet werden", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         Handler mHandler= new Handler();
         final Runnable runnable = new Runnable() {

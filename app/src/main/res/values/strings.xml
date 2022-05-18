@@ -46,6 +46,7 @@
     <string name="kleines_licht">kleines Licht</string>
     <string name="grosses_licht">grosses Licht</string>
     <string name="button_terrasse">Button Terrasse</string>
+    <string name="musik">Musik</string>
 
     <string-array name="programming_languages">
         <item>1</item>

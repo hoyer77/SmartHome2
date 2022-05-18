@@ -569,6 +569,14 @@
                         android:src="@drawable/ic_kamera"
                         android:contentDescription="@string/button_camera" />
 
+                    <ImageView
+                        android:id="@+id/btn_music"
+                        android:layout_width="70dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="40dp"
+                        android:src="@drawable/music"
+                        android:contentDescription="@string/musik" />
+
                 </TableRow>
 
             </TableLayout>
