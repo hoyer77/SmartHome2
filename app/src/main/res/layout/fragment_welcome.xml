@@ -540,42 +540,42 @@
 
                     <ImageView
                         android:id="@+id/btn_terrasse"
-                        android:layout_width="70dp"
-                        android:layout_height="45dp"
-                        android:src="@drawable/ic_terrasse"
-                        android:contentDescription="@string/button_terrasse" />
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/button_terrasse"
+                        android:src="@drawable/ic_terrasse" />
 
                     <ImageView
                         android:id="@+id/btn_whirlpool"
-                        android:layout_width="70dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="40dp"
-                        android:src="@drawable/ic_whirlpool"
-                        android:contentDescription="@string/button_whirlpool" />
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/button_whirlpool"
+                        android:src="@drawable/ic_whirlpool" />
 
                     <ImageView
                         android:id="@+id/btn_pool"
-                        android:layout_width="70dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="40dp"
-                        android:src="@drawable/ic_pool"
-                        android:contentDescription="@string/button_pool" />
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/button_pool"
+                        android:src="@drawable/ic_pool" />
 
                     <ImageView
                         android:id="@+id/btn_camera"
-                        android:layout_width="70dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="40dp"
-                        android:src="@drawable/ic_kamera"
-                        android:contentDescription="@string/button_camera" />
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/button_camera"
+                        android:src="@drawable/ic_kamera" />
 
                     <ImageView
                         android:id="@+id/btn_music"
-                        android:layout_width="70dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="40dp"
-                        android:src="@drawable/music"
-                        android:contentDescription="@string/musik" />
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="@string/musik"
+                        android:src="@drawable/music" />
 
                 </TableRow>
 
