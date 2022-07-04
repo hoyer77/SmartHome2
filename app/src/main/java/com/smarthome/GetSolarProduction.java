@@ -1,9 +1,13 @@
 package com.smarthome;
 
 import android.content.Context;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.smarthome.requester.TigoTokenRequester;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,6 +30,7 @@ public class GetSolarProduction {
         void onResponse(Integer power, Integer solarPower);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void getSolarProduction(VolleyResponseListener volleyResponseListener, Integer savePower) throws IOException {
         // Instantiate the RequestQueue.
         JsonObjectRequest requestSolarProduction = new JsonObjectRequest(Request.Method.GET, QUERY_SOLAR_PRODUCTION, null, response -> {
@@ -45,7 +50,20 @@ public class GetSolarProduction {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }, error -> volleyResponseListener.onError("0", savePower));
+        }, error ->
+        {
+            new TigoTokenRequester(appContextSolar).getTigoToken(new TigoTokenRequester.VolleyResponseListenerTigo() {
+                @Override
+                public void onError(String message) {
+                    volleyResponseListener.onError("0", savePower);
+                }
+
+                @Override
+                public void onResponse(String tigoPower) {
+                    volleyResponseListener.onError(tigoPower, savePower);
+                }
+            });
+        });
         MySingleton.getInstance(appContextSolar).addToRequestQueue(requestSolarProduction);
     }
 

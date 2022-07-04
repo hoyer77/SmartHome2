@@ -7,8 +7,10 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.hardware.display.DisplayManager;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -252,11 +254,11 @@ public class Welcome extends Fragment {
         pool_temp.setText(mText + " °");
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void getSolarPower() {
         // Instantiate the RequestQueue.
         //RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
         final GetSolarProduction getSolarProduction = new GetSolarProduction(context);
-
         try {
             getSolarProduction.getSolarProduction(new GetSolarProduction.VolleyResponseListener() {
 
