@@ -85,6 +85,10 @@ public class TigoTokenRequester {
                         JSONObject answer = new JSONObject(tigoenergy);
                         JSONObject tigoEngery = answer.getJSONObject("summary");
                         String lastPower = String.valueOf(tigoEngery.getInt("last_power_dc"));
+                        if (lastPower == "1")
+                        {
+                            lastPower = "0";
+                        }
                         volleyResponseListenerTigo.onResponse(lastPower);
 
                     } catch (JSONException e) {
