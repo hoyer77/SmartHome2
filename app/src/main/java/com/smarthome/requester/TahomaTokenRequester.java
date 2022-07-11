@@ -82,6 +82,7 @@ public class TahomaTokenRequester {
 
                         @Override
                         public void onError(String message) {
+                            System.out.println(message);
                         }
 
                         @Override
@@ -151,6 +152,7 @@ public class TahomaTokenRequester {
 
                 @Override
                 public void onError(String message) {
+                    System.out.println(message);
                 }
 
                 @Override

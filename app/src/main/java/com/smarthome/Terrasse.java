@@ -44,7 +44,7 @@ public class Terrasse extends Fragment {
     CircleImageView storenOpen;
     CircleImageView storenStop;
 
-    private String token;
+    private String token = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -200,6 +200,21 @@ public class Terrasse extends Fragment {
         storenOpen = view.findViewById(R.id.storen_up);
         storenOpen.setOnClickListener(view1 -> {
             try {
+                if (token == "")
+                {
+                    // Wir versuchen einen Tahoma-Token zu lösen
+                    new TahomaTokenRequester(context).getAuthorization(new TahomaTokenRequester.VolleyResponseListenerTahoma() {
+
+                        @Override
+                        public void onError(String message) {
+                        }
+
+                        @Override
+                        public void onResponse(String responseToken) {
+                            token = responseToken;
+                        }
+                    });
+                }
                 if (!token.equals("")) {
                     new TahomaRequester(context).storenSteuerung("open", token);
                 } else {
@@ -213,6 +228,27 @@ public class Terrasse extends Fragment {
         storenClose = view.findViewById(R.id.storen_down);
         storenClose.setOnClickListener(view12 -> {
             try {
+                if (token == "")
+                {
+                    // Wir versuchen einen Tahoma-Token zu lösen
+                    new TahomaTokenRequester(context).getAuthorization(new TahomaTokenRequester.VolleyResponseListenerTahoma() {
+
+                        @Override
+                        public void onError(String message) {
+                            System.out.println("test");
+                        }
+
+                        @Override
+                        public void onResponse(String responseToken) {
+                            token = responseToken;
+                        }
+                    });
+                }
+                int i = 0;
+                while (i < 30)
+                {
+                    i++;
+                }
                 if (!token.equals("")) {
                     new TahomaRequester(context).storenSteuerung("close", token);
                 } else {
@@ -226,6 +262,27 @@ public class Terrasse extends Fragment {
         storenStop = view.findViewById(R.id.storen_pause);
         storenStop.setOnClickListener(view13 -> {
             try {
+                if (token == "")
+                {
+                    // Wir versuchen einen Tahoma-Token zu lösen
+                    new TahomaTokenRequester(context).getAuthorization(new TahomaTokenRequester.VolleyResponseListenerTahoma() {
+
+                        @Override
+                        public void onError(String message) {
+                            System.out.println("test");
+                        }
+
+                        @Override
+                        public void onResponse(String responseToken) {
+                            token = responseToken;
+                        }
+                    });
+                }
+                int i = 0;
+                while (i < 30)
+                {
+                    i++;
+                }
                 if (!token.equals("")) {
                     new TahomaRequester(context).storenSteuerung("stop", token);
                 } else {
@@ -241,6 +298,27 @@ public class Terrasse extends Fragment {
         dachOpen = view.findViewById(R.id.dach_open);
         dachOpen.setOnClickListener(view14 -> {
             try {
+                if (token == "")
+                {
+                    // Wir versuchen einen Tahoma-Token zu lösen
+                    new TahomaTokenRequester(context).getAuthorization(new TahomaTokenRequester.VolleyResponseListenerTahoma() {
+
+                        @Override
+                        public void onError(String message) {
+                            System.out.println("test");
+                        }
+
+                        @Override
+                        public void onResponse(String responseToken) {
+                            token = responseToken;
+                        }
+                    });
+                }
+                int i = 0;
+                while (i < 30)
+                {
+                    i++;
+                }
                 if (!token.equals("")) {
                     new TahomaRequester(context).dachSteuerung("open", token);
                 } else {
@@ -254,10 +332,31 @@ public class Terrasse extends Fragment {
         dachClose = view.findViewById(R.id.dach_down);
         dachClose.setOnClickListener(view15 -> {
             try {
+                if (token == "")
+                {
+                    // Wir versuchen einen Tahoma-Token zu lösen
+                    new TahomaTokenRequester(context).getAuthorization(new TahomaTokenRequester.VolleyResponseListenerTahoma() {
+
+                        @Override
+                        public void onError(String message) {
+                            System.out.println("test");
+                        }
+
+                        @Override
+                        public void onResponse(String responseToken) {
+                            token = responseToken;
+                        }
+                    });
+                }
+                int i = 0;
+                while (i < 30)
+                {
+                    i++;
+                }
                 if (!token.equals("")) {
                     new TahomaRequester(context).dachSteuerung("close", token);
                 } else {
-                    new TahomaRequester(context).dachSteuerung("closr", "6270d66e8e829d0013bf");
+                    new TahomaRequester(context).dachSteuerung("close", "6270d66e8e829d0013bf");
                 }
             } catch (JSONException | IOException e) {
                 e.printStackTrace();
@@ -267,6 +366,27 @@ public class Terrasse extends Fragment {
         dachStop = view.findViewById(R.id.dach_pause);
         dachStop.setOnClickListener(view16 -> {
             try {
+                if (token == "")
+                {
+                    // Wir versuchen einen Tahoma-Token zu lösen
+                    new TahomaTokenRequester(context).getAuthorization(new TahomaTokenRequester.VolleyResponseListenerTahoma() {
+
+                        @Override
+                        public void onError(String message) {
+                            System.out.println("test");
+                        }
+
+                        @Override
+                        public void onResponse(String responseToken) {
+                            token = responseToken;
+                        }
+                    });
+                }
+                int i = 0;
+                while (i < 30)
+                {
+                    i++;
+                }
                 if (!token.equals("")) {
                     new TahomaRequester(context).dachSteuerung("stop", token);
                 } else {
